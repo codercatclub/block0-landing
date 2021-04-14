@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block0</title>
+  <style>
+    @font-face {
+      font-family: AbolitionRegular;
+      src: url(assets/fonts/Abolition-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: LatoRegular;
+      src: url(assets/fonts/Lato-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: LatoBold;
+      src: url(assets/fonts/Lato-Bold.ttf);
+    }
+
+    html,
+    body {
+      margin: 0;
+      /* overscroll-behavior: none !important; */
+      height: 100vh !important;
+      position: absolute !important;
+      overflow: visible !important;
+    }
+
+    h1 {
+      font-family: AbolitionRegular;
+      font-size: 48px;
+      letter-spacing: 52px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+    }
+
+    .equal {
+      font-family: AbolitionRegular;
+      font-size: 120px;
+      margin-top: 30px;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    .nav-div {
+      margin: 0 10px 0 10px;
+      line-height: 1.6;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-family: LatoRegular;
+      font-size: 20px;
+      letter-spacing: 5px;
+    }
+
+    .top-line {
+      font-family: LatoBold;
+      letter-spacing: 3.5px;
+      font-size: 16px;
+      color: black;
+      margin-top: 30px;
+    }
+
+    .layout {
+      position: relative;
+      z-index: 100;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      /* background-color: tomato; */
+    }
+
+    .spacer {
+      height: 2700px;
+      width: 20%;
+      /* background-color: yellow; */
+      margin: 50px;
+    }
+
+    @media screen and (max-width: 800px) {}
+  </style>
+</head>
+
+<body>
+  <script src="bundle.js"></script>
+
+  <script>
+    const THREE = AFRAME.THREE;
+    AFRAME.registerComponent('transparent', {
+      init: function () {
+        this.el.addEventListener("object3dset", () => {
+          const scene = this.el.getObject3D("mesh");
+
+          scene.traverse((object) => {
+            if (object.isMesh) {
+              const m1 = new THREE.MeshBasicMaterial({
+                transparent: true,
+                needsUpdate: true,
+                map: object.material.map,
+                vertexColors: true
+              });
+
+              object.material = m1
+            }
+          });
+
+        });
+      }
+    });
+  </script>
+
+  <div class="layout">
+    <!-- <h1>BLOCK ZERO</h1>
+    <nav>
+      <a href="/projects/">projects</a>
+      <div class="nav-div">|</div>
+      <a href="/about/">about us</a>
+      <div class="nav-div">|</div>
+      <a href="/news/">news</a>
+      <div class="nav-div">|</div>
+      <a href="/contacts/">contacts</a>
+    </nav> -->
+    <!-- <div class="equal">
+      =
+    </div>
+    <div class="top-line">a space curated for digital expression</div> -->
+    <!-- <div class="spacer"></div>
+    <h1>Some other text</h1> -->
+  </div>
+
+  <a-scene renderer="colorManagement: true" background="color: #ffffff" visible=true vr-button
+    loading-screen="enabled: false" cursor="rayOrigin: mouse">
+
+    <a-assets>
+      <img id="env-map" src="assets/textures/env.jpg" preload="auto" />
+      <a-asset-item id="evironment" src="assets/models/env.glb"></a-asset-item>
+    </a-assets>
+
+    <a-camera position="0 6.5 25" fov="20" wasd-controls-enabled="false" look-controls="enabled: false" scroll>
+    </a-camera>
+
+    <a-entity gltf-part="src: #evironment; part: title"></a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: menu_link_01" hlink material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: menu_divider_01" material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: menu_link_02" hlink material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: menu_divider_02" material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: menu_link_03" hlink material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: menu_divider_03" material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: menu_link_04" hlink material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+
+    <a-entity position="0 -.8 0" gltf-part="src: #evironment; part: char" char-mover
+      material="shader: flat; vertexColors: vertex;"></a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: center_sides" top-material="alpha: 0.6;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: top" top-material></a-entity>
+    <a-entity gltf-part="src: #evironment; part: lines" top-material="alpha: 0.2; lines: 1.0"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: sides" top-material="alpha: 0.2;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: center_top" top-material="center: 1.0;"></a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: backdrop1" transparent></a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: project_title" material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: project_backdrop" grid-material>
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: project_card_01" interactive></a-entity>
+    <a-entity gltf-part="src: #evironment; part: project_card_02" interactive></a-entity>
+    <a-entity gltf-part="src: #evironment; part: project_card_03" interactive></a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: group_char_01" material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: group_char_02" material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: group_char_03" material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+    <a-entity gltf-part="src: #evironment; part: group_char_04" material="shader: flat; vertexColors: vertex;">
+    </a-entity>
+
+    <a-entity id="about-us" position="3 -48 0">
+      <a-entity position="0.2 1.9 0" scale="5.4 5.4 5.4" text="value: About Us; color: black;"></a-entity>
+      <a-entity scale="5 5 5" text="lineHeight: 60; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."></a-entity>
+    </a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: backdrop2" transparent></a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: avatar_01" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: avatar_02" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: avatar_03" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: avatar_04" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: avatar_05" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: avatar_06" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: avatar_07" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: avatar_08" material="shader: flat; vertexColors: vertex;"></a-entity>
+
+  </a-scene>
+
+</body>
+
+</html>
