@@ -9,7 +9,6 @@ export default {
 
     this.el.addEventListener("object3dset", () => {
       const mesh = this.el.getObject3D("mesh");
-      const scaleFactor = 0.1;
 
       this.el.addEventListener('click', (evt) => {
         window.open("https://github.com", '_blank');
@@ -17,11 +16,11 @@ export default {
 
       this.el.addEventListener('mouseenter', (evt) => {
         // evt.detail.intersection.point
-        mesh.scale.multiplyScalar(1 + scaleFactor);
+        // mesh.scale.multiplyScalar(1 + scaleFactor);
       });
   
       this.el.addEventListener('mouseleave', (evt) => {
-        mesh.scale.multiplyScalar(1 - scaleFactor);
+        // mesh.scale.multiplyScalar(1 - scaleFactor);
       });
     })
 

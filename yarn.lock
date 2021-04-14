@@ -202,11 +202,6 @@ aframe-log-component@^1.0.7:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/aframe-log-component/-/aframe-log-component-1.0.7.tgz#1bc8299f98a1e1989ee6d8eb2835650b7accaacc"
 
-aframe-mouse-cursor-component@^0.5.3:
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/aframe-mouse-cursor-component/-/aframe-mouse-cursor-component-0.5.3.tgz#dcff79def7f02c70e9b508fec8affa806c79f893"
-  integrity sha512-TfYY2aWMWai3M9ZPUUO3D5nQzjtlKfk/aMUqLEY0htfrUazBpR53keK923lM2RQJMVptrVUtO+pmNRJDQL9sPg==
-
 aframe@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/aframe/-/aframe-1.2.0.tgz#795027f656d51d59820536e7e6288744f78e80ae"

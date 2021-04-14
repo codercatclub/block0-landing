@@ -2,7 +2,6 @@ import AFRAME from 'aframe';
 
 require('aframe-extras');
 require('aframe-log-component');
-require('aframe-mouse-cursor-component')
 
 import VRButton from './components/VRButton';
 
@@ -12,6 +11,7 @@ import Scroll from './components/Scroll';
 import CharMover from './components/CharMover';
 import TopMaterial from './components/TopMaterial';
 import Interactive from './components/Interactive';
+import Link from './components/Link';
 
 // Register all shaders
 
@@ -25,4 +25,5 @@ AFRAME.registerComponent('scroll', Scroll);
 AFRAME.registerComponent('char-mover', CharMover);
 AFRAME.registerComponent('top-material', TopMaterial);
 AFRAME.registerComponent('interactive', Interactive);
+AFRAME.registerComponent('hlink', Link);
 
