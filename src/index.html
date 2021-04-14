@@ -58,21 +58,24 @@
 
   <a-scene renderer="colorManagement: true" background="color: #eef4fd" visible=true vr-button
     loading-screen="enabled: false">
-    
+
     <a-assets>
       <img id="env-map" src="assets/textures/env.jpg" preload="auto" />
       <a-asset-item id="evironment" src="assets/models/env.glb"></a-asset-item>
     </a-assets>
 
-    <a-camera position="0 6 16" fov="40" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
+    <a-camera position="0 8 16" fov="40" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
 
-    <a-entity gltf-part="src: #evironment; part: char" char-mover material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity position="0 -2 0" gltf-part="src: #evironment; part: char" char-mover
+      material="shader: flat; vertexColors: vertex;"></a-entity>
 
-    <a-entity gltf-part="src: #evironment; part: top" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: sides" material="shader: flat"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: lines" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: center_top" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: center_sides" material="shader: flat; vertexColors: vertex;"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: top" material="shader: flat; vertexColors: vertex;"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: sides" material="shader: flat"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: lines" material="shader: flat; vertexColors: vertex;"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: center_top" material="shader: flat; vertexColors: vertex;">
+      </a-entity>
+      <a-entity gltf-part="src: #evironment; part: center_sides" material="shader: flat; vertexColors: vertex;">
+      </a-entity>
   </a-scene>
 
 </body>
