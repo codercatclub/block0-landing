@@ -8,7 +8,7 @@ export default {
   init: function () {
     const obj = this.el.object3D;
     const initPosY = obj.position.y;
-    this.startY = 90;
+    this.startY = 100;
     this.endY = 2080;
     this.speed = -0.03;
     window.scrollTo(0, 0);
