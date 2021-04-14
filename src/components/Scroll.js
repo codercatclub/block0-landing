@@ -10,7 +10,7 @@ export default {
     const initPosY = obj.position.y;
     this.startY = 100;
     this.endY = 2080;
-    this.speed = -0.03;
+    this.speed = -0.033;
     window.scrollTo(0, 0);
 
     this.pageY = 0;
