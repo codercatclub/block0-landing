@@ -6,6 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Block0</title>
   <style>
+    @font-face {
+      font-family: AbolitionRegular;
+      src: url(assets/fonts/Abolition-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: LatoRegular;
+      src: url(assets/fonts/Lato-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: LatoBold;
+      src: url(assets/fonts/Lato-Bold.ttf);
+    }
+
     html,
     body {
       margin: 0;
@@ -13,6 +28,47 @@
       height: 100vh !important;
       position: absolute !important;
       overflow: visible !important;
+    }
+
+    h1 {
+      font-family: AbolitionRegular;
+      font-size: 48px;
+      letter-spacing: 52px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+    }
+
+    .equal {
+      font-family: AbolitionRegular;
+      font-size: 120px;
+      margin-top: 30px;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    .nav-div {
+      margin: 0 10px 0 10px;
+      line-height: 1.6;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: black;
+      font-family: LatoRegular;
+      font-size: 20px;
+      letter-spacing: 5px;
+    }
+
+    .top-line {
+      font-family: LatoBold;
+      letter-spacing: 3.5px;
+      font-size: 16px;
+      color: black;
+      margin-top: 30px;
     }
 
     .layout {
@@ -43,15 +99,18 @@
   <div class="layout">
     <h1>BLOCK ZERO</h1>
     <nav>
-      <a href="/projects/">projects</a> |
-      <a href="/about/">about us</a> |
-      <a href="/news/">news</a> |
+      <a href="/projects/">projects</a>
+      <div class="nav-div">|</div>
+      <a href="/about/">about us</a>
+      <div class="nav-div">|</div>
+      <a href="/news/">news</a>
+      <div class="nav-div">|</div>
       <a href="/contacts/">contacts</a>
     </nav>
-    <div>
+    <!-- <div class="equal">
       =
     </div>
-    <div class="description">a space curated for digital expression</div>
+    <div class="top-line">a space curated for digital expression</div> -->
     <div class="spacer"></div>
     <h1>Some other text</h1>
   </div>
@@ -64,7 +123,7 @@
       <a-asset-item id="evironment" src="assets/models/env.glb"></a-asset-item>
     </a-assets>
 
-    <a-camera position="0 6 25" fov="20" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
+    <a-camera position="0 5 25" fov="20" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
 
     <a-entity position="0 -2 0" gltf-part="src: #evironment; part: char" char-mover
       material="shader: flat; vertexColors: vertex;"></a-entity>
