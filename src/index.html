@@ -69,11 +69,11 @@
     <a-entity position="0 -2 0" gltf-part="src: #evironment; part: char" char-mover
       material="shader: flat; vertexColors: vertex;"></a-entity>
 
+      <a-entity gltf-part="src: #evironment; part: center_sides" top-material="alpha: 0.6; center: 1.0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: top" top-material></a-entity>
-      <a-entity gltf-part="src: #evironment; part: sides" material="shader: flat"></a-entity>
-      <a-entity gltf-part="src: #evironment; part: lines" material="shader: flat; vertexColors: vertex;"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: lines" top-material="alpha: 0.2; lines: 1.0"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: sides" top-material="alpha: 0.2;"></a-entity>
       <a-entity gltf-part="src: #evironment; part: center_top" top-material></a-entity>
-      <a-entity gltf-part="src: #evironment; part: center_sides" material="shader: flat; vertexColors: vertex;"></a-entity>
   </a-scene>
 
 </body>

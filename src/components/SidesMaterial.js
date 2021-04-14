@@ -7,18 +7,15 @@ import TopFrag from "../shaders/TopFrag.glsl";
 export default {
   schema: {
     timeMsec: { default: 1 },
-    progress: { default: 1 },
-    progressY: { default: 1 },
-    center: { default: 0 },
     alpha: { default: 1 },
-    lines: { default: 0 },
+    progress: { default: 1 },
   },
 
   init: function () {
     this.uniforms = this.initVariables(this.data);
 
     this.materialOptions = {
-      transparent : (this.data.alpha < 1.0),
+      transparent: true
     };
 
     //push atleast one
@@ -114,7 +111,6 @@ export default {
     this.materialShaders.forEach((shader) => {
       shader.uniforms.timeMsec.value = time/20000;
       shader.uniforms.progress.value = window.clampT;
-      shader.uniforms.progressY.value = window.clampTY;
     });
   },
 };

@@ -28,5 +28,6 @@ export default {
     // if the scroll pos is within range, we trigger animation
     let clampT = Math.max(Math.min(this.t, -6.5), -7.5);
     window.clampT = -(clampT+ 6.5)/(-6.5 + 7.5)
+    window.clampTY = this.el.object3D.position.y
   },
 };
