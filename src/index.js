@@ -9,6 +9,7 @@ import ExampleSystem from './systems/ExampleSystem';
 import GLTFPart from './components/GLTFPart';
 import Scroll from './components/Scroll';
 import CharMover from './components/CharMover';
+import TopMaterial from './components/TopMaterial';
 
 // Register all shaders
 
@@ -20,4 +21,5 @@ AFRAME.registerComponent('vr-button', VRButton);
 AFRAME.registerComponent('gltf-part', GLTFPart);
 AFRAME.registerComponent('scroll', Scroll);
 AFRAME.registerComponent('char-mover', CharMover);
+AFRAME.registerComponent('top-material', TopMaterial);
 
