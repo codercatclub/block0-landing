@@ -7,6 +7,7 @@ export default {
 
   init: function () {
     const obj = this.el.object3D;
+    const initPosY = obj.position.y;
 
     document.addEventListener("wheel", (e) => {
       const delta = parseInt(e.deltaY);

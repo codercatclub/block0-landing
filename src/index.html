@@ -64,13 +64,15 @@
       <a-asset-item id="evironment" src="assets/models/env.glb"></a-asset-item>
     </a-assets>
 
-    <a-camera position="0 2 16" fov="40" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
+    <a-camera position="0 6 16" fov="40" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
 
     <a-entity gltf-part="src: #evironment; part: char" char-mover material="shader: flat; vertexColors: vertex;"></a-entity>
 
     <a-entity gltf-part="src: #evironment; part: top" material="shader: flat; vertexColors: vertex;"></a-entity>
     <a-entity gltf-part="src: #evironment; part: sides" material="shader: flat"></a-entity>
     <a-entity gltf-part="src: #evironment; part: lines" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: center_top" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: center_sides" material="shader: flat; vertexColors: vertex;"></a-entity>
   </a-scene>
 
 </body>
