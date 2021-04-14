@@ -35,5 +35,8 @@ export default {
     window.clampTY = this.el.object3D.position.y
     let clampG = Math.max(Math.min(this.t, -35.29), -36.6);
     window.clampG = -(clampG+ 35.29)/(-35.29 + 36.6)
+
+    let clampS = Math.max(Math.min(this.t, -36.0), -38.6);
+    window.clampS = -(clampS+ 36.0)/(-36.0 + 38.6)
   },
 };

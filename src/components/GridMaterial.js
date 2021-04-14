@@ -8,6 +8,7 @@ export default {
   schema: {
     timeMsec: { default: 1 },
     progress: { default: 1 },
+    progressS: { default: 1 },
   },
 
   init: function () {
@@ -109,6 +110,7 @@ export default {
     this.materialShaders.forEach((shader) => {
       shader.uniforms.timeMsec.value = time/1500;
       shader.uniforms.progress.value = window.clampG;
+      shader.uniforms.progressS.value = window.clampS;
     });
   },
 };

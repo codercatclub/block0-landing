@@ -13,11 +13,6 @@ void main() {
   float distToCenter = min(length(vWorldPos)/7.0, 1.0);
   float shouldColor = step(distToCenter,progress);
 
-  float nonStep = 1.0;
-  if(vWorldPos.y - 6.50 > progressY) {
-      nonStep = 0.0;
-  }
-
   float distToCenterY = 1.0 - min((vWorldPos.y-5.9)-progressY, 1.0);
 
   float r = 0.8 + cnoise(0.1*vec2(vWorldPos.x, vWorldPos.z + timeMsec));
