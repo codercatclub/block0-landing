@@ -12,7 +12,7 @@ void main() {
   // radial distance to 0 
   float distToCenter = length(worldPosition.xz);
   float falloff = 1.0 - min(length(worldPosition.xz), 1.0);
-  worldPosition.y -= 2.0*center*falloff*sin(3.14*progress)*(1.0 - sin(2.0*distToCenter));
+  worldPosition.y -= 1.0*center*falloff*sin(3.14*progress)*(1.0 - sin(2.0*distToCenter));
 
   vWorldPos = worldPosition.xyz;
 
