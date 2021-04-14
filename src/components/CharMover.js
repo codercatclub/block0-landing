@@ -8,17 +8,21 @@ export default {
   init: function () {
     const obj = this.el.object3D;
     const initPosY = obj.position.y;
-    this.startY = 800;
-    this.endY = 4000;
-    this.movement = -50;
-
+    this.startY = 0;
+    this.endY = 2000;
+    this.totalMovement = -50;
     this.t = initPosY;
+    this.pageY = 0;
 
     document.addEventListener("wheel", (e) => {
+      this.pageY += parseInt(e.deltaY);
+      this.pageY = Math.max(this.pageY, 0);
+
       // our animation runs from 500 - 2000? scaled by screen? 
-      let t = Math.min(Math.max(e.pageY, this.startY), this.endY);
+      let t = Math.min(Math.max(this.pageY, this.startY), this.endY);
       t = (t-this.startY)/(this.endY - this.startY)
-      this.t = this.movement*t + initPosY;
+      t = 1 - Math.pow(1 - t, 1.2)
+      this.t = this.totalMovement*t + initPosY;
       obj.position.set(obj.position.x, this.t, obj.position.z);
       return false;
     });
