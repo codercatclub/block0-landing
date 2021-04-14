@@ -18,11 +18,14 @@ void main() {
       nonStep = 0.0;
   }
 
-  float r = 0.1 + cnoise(0.1*vec2(vWorldPos.x, vWorldPos.z + timeMsec));
-  float g = 0.1 + cnoise(0.2*vec2(vWorldPos.x, vWorldPos.z + timeMsec));
+  float distToCenterY = 1.0 - min((vWorldPos.y-5.9)-progressY, 1.0);
 
-  float alphaToUse = mix(nonStep, 1.0, alpha);
-  gl_FragColor = vec4(mix(vColor,vec3(r,g,0.5), shouldColor), alphaToUse);
+  float r = 0.8 + cnoise(0.1*vec2(vWorldPos.x, vWorldPos.z + timeMsec));
+  float g = 0.8 + cnoise(0.2*vec2(vWorldPos.x, vWorldPos.z + timeMsec));
+  float b = 0.8 + cnoise(0.15*vec2(vWorldPos.x, vWorldPos.z + timeMsec));
+
+  float alphaToUse = mix(distToCenterY, 1.0, alpha);
+  gl_FragColor = vec4(mix(vColor,vec3(min(r,0.9),g,b), shouldColor), alphaToUse);
 }
 
 
