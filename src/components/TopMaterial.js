@@ -112,7 +112,7 @@ export default {
 
   tick: function (time, timeDelta) {
     this.materialShaders.forEach((shader) => {
-      shader.uniforms.timeMsec.value = time/20000;
+      shader.uniforms.timeMsec.value = time/2000;
       shader.uniforms.progress.value = window.clampT;
       shader.uniforms.progressY.value = window.clampTY;
     });
