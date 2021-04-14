@@ -10,6 +10,7 @@ import GLTFPart from './components/GLTFPart';
 import Scroll from './components/Scroll';
 import CharMover from './components/CharMover';
 import TopMaterial from './components/TopMaterial';
+import GridMaterial from './components/GridMaterial';
 import Interactive from './components/Interactive';
 import Link from './components/Link';
 
@@ -24,6 +25,7 @@ AFRAME.registerComponent('gltf-part', GLTFPart);
 AFRAME.registerComponent('scroll', Scroll);
 AFRAME.registerComponent('char-mover', CharMover);
 AFRAME.registerComponent('top-material', TopMaterial);
+AFRAME.registerComponent('grid-material', GridMaterial);
 AFRAME.registerComponent('interactive', Interactive);
 AFRAME.registerComponent('hlink', Link);
 
