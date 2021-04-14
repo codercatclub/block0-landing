@@ -56,7 +56,7 @@
     <h1>Some other text</h1>
   </div>
 
-  <a-scene renderer="colorManagement: true" background="color: #eef4fd" visible=true vr-button
+  <a-scene renderer="colorManagement: true" background="color: #ffffff" visible=true vr-button
     loading-screen="enabled: false">
     
     <a-assets>
@@ -64,7 +64,7 @@
       <a-asset-item id="evironment" src="assets/models/env.glb"></a-asset-item>
     </a-assets>
 
-    <a-camera position="0 6 16" fov="40" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
+    <a-camera position="0 6 25" fov="20" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
 
     <a-entity gltf-part="src: #evironment; part: char" char-mover material="shader: flat; vertexColors: vertex;"></a-entity>
 
@@ -73,6 +73,8 @@
     <a-entity gltf-part="src: #evironment; part: lines" material="shader: flat; vertexColors: vertex;"></a-entity>
     <a-entity gltf-part="src: #evironment; part: center_top" material="shader: flat; vertexColors: vertex;"></a-entity>
     <a-entity gltf-part="src: #evironment; part: center_sides" material="shader: flat; vertexColors: vertex;"></a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: backdrop1" material="shader: flat; vertexColors: vertex;"></a-entity>
   </a-scene>
 
 </body>
