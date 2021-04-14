@@ -111,19 +111,19 @@
       =
     </div>
     <div class="top-line">a space curated for digital expression</div> -->
-    <div class="spacer"></div>
-    <h1>Some other text</h1>
+    <!-- <div class="spacer"></div>
+    <h1>Some other text</h1> -->
   </div>
 
   <a-scene renderer="colorManagement: true" background="color: #ffffff" visible=true vr-button
-    loading-screen="enabled: false">
+    loading-screen="enabled: false" cursor="rayOrigin: mouse">
 
     <a-assets>
       <img id="env-map" src="assets/textures/env.jpg" preload="auto" />
       <a-asset-item id="evironment" src="assets/models/env.glb"></a-asset-item>
     </a-assets>
 
-    <a-camera position="0 5 25" fov="20" wasd-controls-enabled="false" look-controls="enabled: false" scroll></a-camera>
+    <a-camera position="0 5 25" fov="20" wasd-controls-enabled="false" look-controls="enabled: false" scroll mouse-cursor></a-camera>
 
     <a-entity position="0 -2 0" gltf-part="src: #evironment; part: char" char-mover
       material="shader: flat; vertexColors: vertex;"></a-entity>
@@ -134,6 +134,13 @@
     <a-entity gltf-part="src: #evironment; part: sides" top-material="alpha: 0.2;"></a-entity>
     <a-entity gltf-part="src: #evironment; part: center_top" top-material></a-entity>
     <a-entity gltf-part="src: #evironment; part: backdrop1" material="shader: flat; vertexColors: vertex;"></a-entity>
+
+    <a-entity gltf-part="src: #evironment; part: project_title" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: project_backdrop" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity gltf-part="src: #evironment; part: project_card_01" interactive></a-entity>
+    <a-entity gltf-part="src: #evironment; part: project_card_02" interactive></a-entity>
+    <a-entity gltf-part="src: #evironment; part: project_card_03" interactive></a-entity>
+
   </a-scene>
 
 </body>
