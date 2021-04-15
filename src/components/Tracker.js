@@ -10,11 +10,10 @@ export default {
   init: function () {
     this.target = document.getElementById(this.data.el);
     const offset = this.data.offset;
-    this.pos = this.el.getAttribute("position");
+    this.pos = this.el.getAttribute("position").clone().add(offset);
 
-    this.px = 0;
-    this.py = 0;
-    this.pz = 0;
+    let cam = document.getElementById("camera");
+    this.camera = cam.object3D.children[0];
 
     this.target.style.cssText = `
       position: absolute;
@@ -25,14 +24,25 @@ export default {
       pointer-events: all;
     `;
 
-    console.log("[D] el:", this.target, pos);
+    console.log("[D] el:", this.target, this.screenPos);
+  },
+
+  updateScreenPos: function() {
+    this.camera.getWorldPosition()
+    this.screenPos = new THREE.Vector3().copy(this.pos);
+    this.screenPos.project(this.camera)
+
+    this.px = (this.screenPos.x *  .5 + .5) * window.innerWidth;
+    this.py = (this.screenPos.y * -.5 + .5) * window.innerHeight;
+    this.pz = 0;
+
+    //TODO: auto scale
+    this.scale = 1;
+
   },
 
   tick: function (time) {
-    this.py += 0.1;
-
-    // TODO: Snays magic happens here and this.pos transforms to pixel position on the screen :)
-
-    this.target.style.transform = `translate3d(${this.px}px, ${this.py}px, ${this.pz}px) scale(1)`;
+    this.updateScreenPos();
+    this.target.style.transform = `translate3d(${this.px}px, ${this.py}px, ${this.pz}px) scale(${this.scale})`;
   },
 };
