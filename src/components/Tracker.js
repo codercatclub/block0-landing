@@ -25,7 +25,7 @@ export default {
       pointer-events: all;
     `;
 
-    console.log("[D] el:", this.target, pos);
+    console.log("[D] el:", this.target, this.pos);
   },
 
   tick: function (time) {
