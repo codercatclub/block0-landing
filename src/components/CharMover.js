@@ -30,8 +30,8 @@ export default {
   
   tick: function (time) {
     // if the scroll pos is within range, we trigger animation
-    let clampT = Math.max(Math.min(this.t, -6.5), -7.5);
-    window.clampT = -(clampT+ 6.5)/(-6.5 + 7.5)
+    let clampT = Math.max(Math.min(this.t, -6.5), -10.5);
+    window.clampT = -(clampT+ 6.5)/(-6.5 + 10.5)
     window.clampTY = this.el.object3D.position.y
     let clampG = Math.max(Math.min(this.t, -35.29), -36.6);
     window.clampG = -(clampG+ 35.29)/(-35.29 + 36.6)
