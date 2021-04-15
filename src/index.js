@@ -13,6 +13,7 @@ import TopMaterial from './components/TopMaterial';
 import GridMaterial from './components/GridMaterial';
 import Interactive from './components/Interactive';
 import Link from './components/Link';
+import Tracker from './components/Tracker';
 
 // Register all shaders
 
@@ -28,4 +29,5 @@ AFRAME.registerComponent('top-material', TopMaterial);
 AFRAME.registerComponent('grid-material', GridMaterial);
 AFRAME.registerComponent('interactive', Interactive);
 AFRAME.registerComponent('hlink', Link);
+AFRAME.registerComponent('tracker', Tracker);
 
