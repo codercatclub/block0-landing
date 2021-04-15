@@ -12,7 +12,7 @@
     }
 
     @font-face {
-      font-family: LatoRegular;
+      font-family: Lato;
       src: url(assets/fonts/Lato-Regular.ttf);
     }
 
@@ -37,7 +37,14 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 80px;
+      margin: 0;
+      text-align: center;
+    }
+
+    #title-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .equal {
@@ -48,6 +55,7 @@
 
     nav {
       display: flex;
+      margin-top: 40px;
     }
 
     .nav-div {
@@ -58,9 +66,25 @@
     nav a {
       text-decoration: none;
       color: black;
-      font-family: LatoRegular;
+      font-family: Lato;
       font-size: 20px;
       letter-spacing: 5px;
+    }
+
+    nav a:nth-child(1) {
+      color: #e83731;
+    }
+
+    nav a:nth-child(3) {
+      color: #e2b422;
+    }
+
+    nav a:nth-child(5) {
+      color: #008bc5;
+    }
+
+    nav a:nth-child(7) {
+      color: #3da9a4;
     }
 
     .top-line {
@@ -87,6 +111,33 @@
       width: 20%;
       /* background-color: yellow; */
       margin: 50px;
+    }
+
+    #about-container {
+      width: 80%;
+      margin: auto;
+      display: flex;
+    }
+
+    .about-text {
+      font-family: Lato;
+      letter-spacing: 3.5px;
+      text-align: justify;
+      flex-basis: 100%;
+      flex: 1;
+      padding-top: 50px;
+    }
+
+    .about-img {
+      flex-basis: 100%;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-img img {
+      max-width: 100%;
+      max-height: 100%;
     }
 
     @media screen and (max-width: 800px) {}
@@ -122,23 +173,38 @@
   </script>
 
   <div class="overlay">
-    <div id="place-me">
-      <h2>PLACE ME PLEASE!</h2>
+    <div id="title-container">
+      <h1 id="title">BLOCK ZERO</h1>
+
+      <nav id="nav">
+        <a href="/projects/">projects</a>
+        <div class="nav-div">|</div>
+        <a href="/about/">about us</a>
+        <div class="nav-div">|</div>
+        <a href="/news/">news</a>
+        <div class="nav-div">|</div>
+        <a href="/contacts/">contacts</a>
+      </nav>
     </div>
 
-    <div id="place-me2">
-      <h2>PLACE ME AS WELL!</h2>
+    <div id="about-container">
+      <div class="about-img">
+        <img src="assets/imgs/CharGroup.png" />
+      </div>
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, distinctio facilis tempora iure dolorum
+          voluptatibus veritatis quasi illum, soluta repellat quidem eius consequatur molestias est aliquam quisquam.
+          Suscipit, totam ad.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, distinctio facilis tempora iure dolorum
+          voluptatibus veritatis quasi illum, soluta repellat quidem eius consequatur molestias est aliquam quisquam.
+          Suscipit, totam ad.
+        </p>
+      </div>
     </div>
-    <!-- <h1>BLOCK ZERO</h1>
-    <nav>
-      <a href="/projects/">projects</a>
-      <div class="nav-div">|</div>
-      <a href="/about/">about us</a>
-      <div class="nav-div">|</div>
-      <a href="/news/">news</a>
-      <div class="nav-div">|</div>
-      <a href="/contacts/">contacts</a>
-    </nav> -->
+
+
     <!-- <div class="equal">
       =
     </div>
@@ -154,27 +220,11 @@
       <a-asset-item id="evironment" src="assets/models/env.glb"></a-asset-item>
     </a-assets>
 
-    <a-camera id="camera" position="0 6.5 25" fov="20" wasd-controls-enabled="false" look-controls="enabled: false" scroll>
+    <a-camera id="camera" position="0 6.5 25" fov="20" wasd-controls-enabled="false" look-controls="enabled: false"
+      scroll>
     </a-camera>
 
-    <a-box position="0 5 0" tracker__1="el: place-me" tracker__2="el: place-me2; offset: 0 2 0;"></a-box>
-
-    <a-entity gltf-part="src: #evironment; part: title"></a-entity>
-
-    <a-entity gltf-part="src: #evironment; part: menu_link_01" hlink material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: menu_divider_01" material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: menu_link_02" hlink material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: menu_divider_02" material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: menu_link_03" hlink material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: menu_divider_03" material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: menu_link_04" hlink material="shader: flat; vertexColors: vertex;">
-    </a-entity>
+    <a-entity position="0 10.1 0" tracker="el: title-container; alignW: center;"></a-entity>
 
     <a-entity position="0 -.8 0" gltf-part="src: #evironment; part: char" char-mover
       material="shader: flat; vertexColors: vertex;"></a-entity>
@@ -195,21 +245,24 @@
     <a-entity gltf-part="src: #evironment; part: project_card_02" interactive></a-entity>
     <a-entity gltf-part="src: #evironment; part: project_card_03" interactive></a-entity>
 
-    <a-entity gltf-part="src: #evironment; part: group_char_01" material="shader: flat; vertexColors: vertex;">
+    <!-- ABOUT US -->
+    <a-entity position="0 -47.7 0" tracker="el: about-container; alignW: center; alignH: center;"></a-entity>
+
+    <!-- <a-entity id="about-us" position="3 -48 0">
+      <a-entity position="0.2 1.9 0" scale="5.4 5.4 5.4" text="value: About Us; color: black;"></a-entity>
+      <a-entity scale="5 5 5"
+        text="lineHeight: 60; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
+      </a-entity>
+    </a-entity> -->
+
+    <!-- <a-entity gltf-part="src: #evironment; part: group_char_01" material="shader: flat; vertexColors: vertex;">
     </a-entity>
     <a-entity gltf-part="src: #evironment; part: group_char_02" material="shader: flat; vertexColors: vertex;">
     </a-entity>
     <a-entity gltf-part="src: #evironment; part: group_char_03" material="shader: flat; vertexColors: vertex;">
     </a-entity>
     <a-entity gltf-part="src: #evironment; part: group_char_04" material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-
-    <a-entity id="about-us" position="3 -48 0">
-      <a-entity position="0.2 1.9 0" scale="5.4 5.4 5.4" text="value: About Us; color: black;"></a-entity>
-      <a-entity scale="5 5 5"
-        text="lineHeight: 60; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-      </a-entity>
-    </a-entity>
+    </a-entity> -->
 
     <a-entity gltf-part="src: #evironment; part: backdrop2" transparent></a-entity>
 
