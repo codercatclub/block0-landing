@@ -34,7 +34,6 @@ export default {
   },
 
   updateScreenPos: function () {
-    this.camera.getWorldPosition()
     this.screenPos = new THREE.Vector3().copy(this.pos);
     this.screenPos.project(this.camera)
 
