@@ -15,6 +15,7 @@ import Interactive from './components/Interactive';
 import Link from './components/Link';
 import Tracker from './components/Tracker';
 import Layout from './components/Layout';
+import GlobalSettings from './components/GlobalSettings';
 
 // Register all shaders
 
@@ -32,3 +33,4 @@ AFRAME.registerComponent('interactive', Interactive);
 AFRAME.registerComponent('hlink', Link);
 AFRAME.registerComponent('tracker', Tracker);
 AFRAME.registerComponent('layout', Layout);
+AFRAME.registerComponent('settings', GlobalSettings);
