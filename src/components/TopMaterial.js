@@ -10,9 +10,10 @@ export default {
     timeMsec: { default: 1 },
     progress: { default: 1 },
     progressY: { default: 1 },
+    progressM: { default: 1 },
     center: { default: 0 },
     alpha: { default: 1 },
-    lines: { default: 0 },
+    base: { default: 0 },
   },
 
   init: function () {
@@ -117,6 +118,7 @@ export default {
       shader.uniforms.timeMsec.value = time/1500;
       shader.uniforms.progress.value = window.clampT;
       shader.uniforms.progressY.value = window.clampTY;
+      shader.uniforms.progressM.value = window.clampM;
     });
   },
 };
