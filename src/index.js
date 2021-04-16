@@ -17,6 +17,9 @@ import Tracker from './components/Tracker';
 import Layout from './components/Layout';
 import GlobalSettings from './components/GlobalSettings';
 
+// Web components
+import Header from './components/Header';
+
 // Register all shaders
 
 // Register all systems
@@ -34,3 +37,6 @@ AFRAME.registerComponent('hlink', Link);
 AFRAME.registerComponent('tracker', Tracker);
 AFRAME.registerComponent('layout', Layout);
 AFRAME.registerComponent('settings', GlobalSettings);
+
+// Register web components
+customElements.define("header-section", Header);

@@ -28,6 +28,14 @@ module.exports = {
           to: '.',
         },
         {
+          from: 'src/styles.css',
+          to: '.',
+        },
+        {
+          from: 'src/projects.html',
+          to: '.',
+        },
+        {
           from: 'assets',
           to: 'assets',
         },
