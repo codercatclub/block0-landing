@@ -6,6 +6,7 @@ import TopFrag from "../shaders/TopFrag.glsl";
 
 export default {
   schema: {
+    offset: { type: "vec2" , default: [-2.63, 1.20]},
     timeMsec: { default: 1 },
     progress: { default: 1 },
     progressY: { default: 1 },
@@ -19,6 +20,7 @@ export default {
 
     this.materialOptions = {
       transparent : (this.data.alpha < 1.0),
+      side : (this.data.alpha < 1.0) ? THREE.FrontSide : THREE.DoubleSide
     };
 
     //push atleast one
