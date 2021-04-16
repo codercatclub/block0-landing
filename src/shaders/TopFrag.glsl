@@ -25,12 +25,11 @@ void main() {
   float g = 0.8 + cnoise(0.2*vec2(vWorldPos.x, vWorldPos.z + timeMsec));
   float b = 0.8 + cnoise(0.15*vec2(vWorldPos.x, vWorldPos.z + timeMsec));
 
-  if(distToCenter * progress > 1.0) {
-    // float n = round(-0.06*progressY + 0.0*abs(1.0/vWorldPos.y) + -0.1 + cnoise(vec2(0.2*vWorldPos.xy) + offset));
-    float n = round(0.07*abs(progressY) + 1.0*(1.0-distToCenterY) + -0.1 + cnoise(vec2(0.2*vWorldPos.xy) + offset));
+
+  if(distToCenter * progressM > 1.0) {
+    float n = step(0.0, 0.01*abs(progressY) + 1.0*(1.0-distToCenterY) + -0.4 + cnoise(vec2(0.3*vWorldPos.xy) + offset));
     shouldColor = n;
   }
-
 
   float alphaToUse = mix(distToCenterY, 1.0, alpha);
   gl_FragColor = vec4(mix(vColor,vec3(min(r,0.9),g,b), shouldColor), alphaToUse);
