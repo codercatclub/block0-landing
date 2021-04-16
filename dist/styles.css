@@ -1,0 +1,83 @@
+@font-face {
+  font-family: AbolitionRegular;
+  src: url(assets/fonts/Abolition-Regular.ttf);
+}
+
+@font-face {
+  font-family: Lato;
+  src: url(assets/fonts/Lato-Regular.ttf);
+}
+
+@font-face {
+  font-family: LatoBold;
+  src: url(assets/fonts/Lato-Bold.ttf);
+}
+
+html, body {
+  margin: 0;
+  /* overscroll-behavior: none !important; */
+  height: 100vh !important;
+  overflow: visible !important;
+}
+
+.top-line {
+  font-family: LatoBold;
+  letter-spacing: 3.5px;
+  font-size: 16px;
+  color: black;
+  margin-top: 30px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.spacer {
+  height: 2700px;
+  width: 20%;
+  /* background-color: yellow; */
+  margin: 50px;
+}
+
+#about-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+}
+
+.about-text {
+  font-family: Lato;
+  letter-spacing: 3.5px;
+  text-align: justify;
+  flex-basis: 100%;
+  flex: 1;
+  padding-top: 20px;
+}
+
+.about-img {
+  flex-basis: 100%;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.av {
+  font-family: Lato;
+  letter-spacing: 3.5px;
+  font-size: 20px;
+}
+
+
+@media screen and (max-width: 800px) {}
