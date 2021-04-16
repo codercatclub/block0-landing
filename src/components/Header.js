@@ -5,13 +5,15 @@ export default class Header extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
+
     const template = document.createElement("template");
     template.innerHTML = html`
       <div id="title-container">
-        <h1 id="title">BLOCK ZERO</h1>
-
+        <a href="/">
+          <h1 id="title">BLOCK ZERO</h1>
+        </a>
         <nav id="nav">
-          <a href="/projects/">projects</a>
+          <a href="/projects.html">projects</a>
           <div class="nav-div">|</div>
           <a href="/about/">about us</a>
           <div class="nav-div">|</div>
@@ -72,7 +74,7 @@ export default class Header extends HTMLElement {
         line-height: 1.6;
       }
 
-      nav a {
+      a {
         text-decoration: none;
         color: black;
         font-family: Lato;

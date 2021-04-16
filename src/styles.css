@@ -13,12 +13,10 @@
   src: url(assets/fonts/Lato-Bold.ttf);
 }
 
-html,
-body {
+html, body {
   margin: 0;
   /* overscroll-behavior: none !important; */
   height: 100vh !important;
-  position: absolute !important;
   overflow: visible !important;
 }
 
@@ -81,32 +79,5 @@ body {
   font-size: 20px;
 }
 
-.container {
-  width: 721px;
-  height: 100vh;
-  margin: auto;
-  /* background-color: chocolate; */
-  display: flex;
-  /* background-color: white; */
-  background-size: 60px 60px;
-  background-image:
-    linear-gradient(to right, grey 1px, transparent 1px),
-    linear-gradient(to bottom, grey 1px, transparent 1px);
-}
-
-.project {
-  width: 100px;
-  height: 100px;
-  background-color: cyan;
-}
-
-.pin-board {
-  position: absolute;
-  top: 0;
-  left: 0;
-  max-width: 100%;
-  max-height: 100%;
-  z-index: -10;
-}
 
 @media screen and (max-width: 800px) {}
