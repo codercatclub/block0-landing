@@ -14,6 +14,7 @@ import GridMaterial from './components/GridMaterial';
 import Interactive from './components/Interactive';
 import Link from './components/Link';
 import Tracker from './components/Tracker';
+import Layout from './components/Layout';
 
 // Register all shaders
 
@@ -30,4 +31,4 @@ AFRAME.registerComponent('grid-material', GridMaterial);
 AFRAME.registerComponent('interactive', Interactive);
 AFRAME.registerComponent('hlink', Link);
 AFRAME.registerComponent('tracker', Tracker);
-
+AFRAME.registerComponent('layout', Layout);

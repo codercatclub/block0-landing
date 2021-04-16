@@ -125,7 +125,7 @@
       text-align: justify;
       flex-basis: 100%;
       flex: 1;
-      padding-top: 50px;
+      padding-top: 20px;
     }
 
     .about-img {
@@ -138,6 +138,12 @@
     .about-img img {
       max-width: 100%;
       max-height: 100%;
+    }
+
+    .av {
+      font-family: Lato;
+      letter-spacing: 3.5px;
+      font-size: 20px;
     }
 
     @media screen and (max-width: 800px) {}
@@ -203,6 +209,14 @@
       </div>
     </div>
 
+    <div class="av" id="av1">afreen</div>
+    <div class="av" id="av2">tien</div>
+    <div class="av" id="av3">ishan</div>
+    <div class="av" id="av4">melina</div>
+    <div class="av" id="av5">kirill</div>
+    <div class="av" id="av6">sneha</div>
+    <div class="av" id="av7">kashif</div>
+    <div class="av" id="av8">you</div>
 
     <!-- <div class="equal">
       =
@@ -245,34 +259,28 @@
     <a-entity gltf-part="src: #evironment; part: project_card_03" interactive></a-entity>
 
     <!-- ABOUT US -->
-    <a-entity position="0 -47.7 0" tracker="el: about-container; alignW: center; alignH: center;"></a-entity>
-
-    <!-- <a-entity id="about-us" position="3 -48 0">
-      <a-entity position="0.2 1.9 0" scale="5.4 5.4 5.4" text="value: About Us; color: black;"></a-entity>
-      <a-entity scale="5 5 5"
-        text="lineHeight: 60; color: black; value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-      </a-entity>
-    </a-entity> -->
-
-    <!-- <a-entity gltf-part="src: #evironment; part: group_char_01" material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: group_char_02" material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: group_char_03" material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: group_char_04" material="shader: flat; vertexColors: vertex;">
-    </a-entity> -->
+    <a-entity position="0 -49 0" tracker="el: about-container; alignW: center; alignH: center;"></a-entity>
 
     <a-entity gltf-part="src: #evironment; part: backdrop2" transparent></a-entity>
 
-    <a-entity gltf-part="src: #evironment; part: avatar_01" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: avatar_02" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: avatar_03" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: avatar_04" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: avatar_05" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: avatar_06" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: avatar_07" material="shader: flat; vertexColors: vertex;"></a-entity>
-    <a-entity gltf-part="src: #evironment; part: avatar_08" material="shader: flat; vertexColors: vertex;"></a-entity>
+    <a-entity layout="rows: 2; cols: 4; cellWidth: 3; cellHeight: 2.5;" position="0 -55 0">
+      <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8" material="shader: flat; vertexColors: vertex;"
+        tracker="el: av1; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8" material="shader: flat; vertexColors: vertex;"
+        tracker="el: av2; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8" material="shader: flat; vertexColors: vertex;"
+        tracker="el: av3; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8" material="shader: flat; vertexColors: vertex;"
+        tracker="el: av4; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8" material="shader: flat; vertexColors: vertex;"
+        tracker="el: av5; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8" material="shader: flat; vertexColors: vertex;"
+        tracker="el: av6; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8" material="shader: flat; vertexColors: vertex;"
+        tracker="el: av7; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
+      <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8" material="shader: flat; vertexColors: vertex;"
+        tracker="el: av8; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
+    </a-entity>
 
   </a-scene>
 
