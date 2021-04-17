@@ -23,7 +23,7 @@ export default class Header extends HTMLElement {
       </div>
     `;
 
-    const tab = window.location.pathname.replace('/', '').trim();
+    const tab = window.location.pathname.split('/').pop();
 
     const styleString = css`
       @font-face {
