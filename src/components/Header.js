@@ -12,19 +12,20 @@ export default class Header extends HTMLElement {
           <h1 id="title">BLOCK ZERO</h1>
         </a>
         <nav id="nav">
-          <a href="/projects.html">projects</a>
+          <a href="projects.html">projects</a>
           <div class="nav-div">|</div>
           <a href="/about/">about us</a>
           <div class="nav-div">|</div>
           <a href="/news/">news</a>
           <div class="nav-div">|</div>
-          <a href="/contacts/">contacts</a>
+          <a href="contacts.html">contacts</a>
         </nav>
       </div>
     `;
 
-    const style = document.createElement("style");
-    style.textContent = css`
+    const tab = window.location.pathname.replace('/', '').trim();
+
+    const styleString = css`
       @font-face {
         font-family: AbolitionRegular;
         src: url(assets/fonts/Abolition-Regular.ttf);
@@ -68,6 +69,10 @@ export default class Header extends HTMLElement {
         margin-top: 40px;
       }
 
+      nav a[href="<tab>"] {
+        text-decoration: underline;
+      }
+
       .nav-div {
         margin: 0 10px 0 10px;
         line-height: 1.6;
@@ -96,7 +101,10 @@ export default class Header extends HTMLElement {
       nav a:nth-child(7) {
         color: #3da9a4;
       }
-    `;
+  `;
+
+    const style = document.createElement("style");
+    style.textContent = styleString[0].replace("<tab>", tab);
 
     this.shadowRoot.append(style, template.content.cloneNode(true));
   }

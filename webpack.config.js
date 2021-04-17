@@ -31,6 +31,10 @@ module.exports = {
           to: '.',
         },
         {
+          from: 'src/contacts.html',
+          to: '.',
+        },
+        {
           from: 'src/styles.css',
           to: '.',
         },
