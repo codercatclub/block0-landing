@@ -27,7 +27,7 @@ void main() {
 
 
   if(distToCenter * progressM > 1.0) {
-    float n = step(0.0, 0.01*abs(progressY) + 1.0*(1.0-distToCenterY) + -0.4 + cnoise(vec2(0.3*vWorldPos.xy) + offset));
+    float n = step(0.0, 0.01*abs(progressY) + 1.0*(1.0-distToCenterY) + -0.4 + cnoise(vec2(0.4*vWorldPos.xy) + offset));
     shouldColor = n;
   }
 
