@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <script src="ui.js"></script>
   <script src="bundle.js"></script>
 
   <script>
@@ -85,7 +86,7 @@
 
     <a-entity position="0 10 0" tracker="el: title-container; alignW: center;"></a-entity>
 
-    <a-entity position="0 -.8 0" gltf-part="src: #evironment; part: char" char-mover
+    <a-entity position="0 -0.8 0" gltf-part="src: #evironment; part: char" char-mover
       material="shader: flat; vertexColors: vertex;"></a-entity>
 
     <a-entity gltf-part="src: #evironment; part: center_sides" top-material="alpha: 0.6;"></a-entity>
@@ -95,14 +96,6 @@
     <a-entity gltf-part="src: #evironment; part: center_top" top-material="center: 1.0;"></a-entity>
 
     <a-entity gltf-part="src: #evironment; part: backdrop1" transparent></a-entity>
-
-    <a-entity gltf-part="src: #evironment; part: project_title" material="shader: flat; vertexColors: vertex;">
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: project_backdrop" grid-material>
-    </a-entity>
-    <a-entity gltf-part="src: #evironment; part: project_card_01" interactive></a-entity>
-    <a-entity gltf-part="src: #evironment; part: project_card_02" interactive></a-entity>
-    <a-entity gltf-part="src: #evironment; part: project_card_03" interactive></a-entity>
 
     <!-- ABOUT US -->
     <a-entity position="0 -49 0" tracker="el: about-container; alignW: center; alignH: center;"></a-entity>

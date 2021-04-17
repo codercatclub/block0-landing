@@ -2,11 +2,14 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    bundle: './src/index.js',
+    ui: './src/ui.js',
+  },
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -25,6 +28,10 @@ module.exports = {
         },
         {
           from: 'src/about.html',
+          to: '.',
+        },
+        {
+          from: 'src/contacts.html',
           to: '.',
         },
         {
