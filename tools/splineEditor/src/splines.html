@@ -92,7 +92,7 @@
       vis.render();
 
       let codeGen = function() {
-        let finalString = "let curve = new THREE.SplineCurve( ["
+        let finalString = "const curve = new THREE.SplineCurve( ["
         points.forEach((p,idx) => {
             let rx = p.x / w;
             let ry = 1.0 - p.y / h;
@@ -166,7 +166,7 @@
       </div>
       <div>
         <b>Usage:</b>
-        let remappedT = curve.getPointAt(t);
+        const remappedT = curve.getPointAt(t);
       </div>
     </div>
   </div>
