@@ -3,18 +3,30 @@
 
 <head>
   <title>Spline Editor</title>
-  <link type="text/css" rel="stylesheet" href="ex.css?3.2" />
   <script type="text/javascript" src="../protovis-r3.2.js"></script>
   <style type="text/css">
-    #fig {
-      width: 900px;
-      height: 620px;
-    }
-
-    .header {
-      float: right;
-      padding-top: 5px;
-    }
+  .header {
+    float: right;
+    padding-top: 5px;
+  }
+  body {
+    margin: 0;
+    display: table;
+    height: 100%;
+    width: 100%;
+    font: 14px/134% Helvetica Neue, sans-serif;
+  }
+  #center {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  #fig {
+    position: relative;
+    margin: auto;
+    width: 900px;
+    height: 620px;
+  }
   </style>
 </head>
 
@@ -37,9 +49,9 @@
 
       var points; 
       let resetPoints = function(count) {
-        points = pv.range(0, count+1).map(function(i) ({
-          x: i * w / count,
-          y: h - i * h / count
+        points = pv.range(0, count).map(function(i) ({
+          x: i * w / (count-1),
+          y: h - i * h / (count-1)
         }));
       }
       resetPoints(4)
