@@ -8,6 +8,10 @@
   <title>Block Zero Contacts</title>
   <link rel="stylesheet" href="styles.css">
   <style>
+    body {
+      font-size: 16px;
+    }
+
     header-section::part(container) {
       margin-top: 60px;
     }
@@ -15,6 +19,21 @@
     .container {
       width: 80%;
       margin: 60px auto 0 auto;
+      display: flex;
+    }
+
+    .img-container {
+      display: flex;
+      flex: 1;
+    }
+
+    img {
+      max-width: 85%;
+      height: auto;
+    }
+
+    form {
+      flex: 1;
     }
 
     .input-block {
@@ -25,14 +44,13 @@
 
     .input-block label {
       font-family: Lato;
-      font-size: 16px;
       margin-bottom: 8px;
     }
 
     .submit-btn {
       margin-top: 20px;
-      width: 80px;
-      height: 30px;
+      width: 100px;
+      height: 0px;
     }
 
     input {
@@ -66,6 +84,9 @@
   <script src="ui.js"></script>
   <header-section></header-section>
   <div class="container">
+    <div class="img-container">
+      <img src="assets/imgs/anatomy.svg" alt="anatomy" />
+    </div>
     <form action="/action_page.php">
       
       <div class="input-block">
