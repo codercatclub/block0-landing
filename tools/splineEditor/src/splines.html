@@ -23,7 +23,7 @@
 
     <div id="fig">
       <div>
-        <h2>ThreeJS Spline Curve Exporter</h2>
+        <h2>ThreeJS Easing Curve Exporter</h2>
         click points to move // ctrl-click to add point // delete to remove
       </div>
       <script type="text/javascript+protovis">
@@ -80,7 +80,7 @@
       vis.render();
 
       let codeGen = function() {
-        let finalString = "this.curve = new THREE.SplineCurve( ["
+        let finalString = "let curve = new THREE.SplineCurve( ["
         points.forEach((p,idx) => {
             let rx = p.x / w;
             let ry = 1.0 - p.y / h;
@@ -151,6 +151,10 @@
         <b>Export:</b>
         <input style='width:70%;' type="text" value="Hello World" id="splineCode" readonly>
         <button onclick="copyFunc()">Copy</button>
+      </div>
+      <div>
+        <b>Usage:</b>
+        let remappedT = curve.getPointAt(t);
       </div>
     </div>
   </div>
