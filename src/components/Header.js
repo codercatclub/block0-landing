@@ -5,10 +5,9 @@ export default class Header extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
-
     const template = document.createElement("template");
     template.innerHTML = html`
-      <div id="title-container">
+      <div id="title-container" part="container">
         <a href="/">
           <h1 id="title">BLOCK ZERO</h1>
         </a>

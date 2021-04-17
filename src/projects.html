@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Block Zero Projects</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     body {
@@ -60,14 +60,16 @@
       max-height: 100%;
       z-index: -10;
     }
+
+    header-section::part(container) {
+      margin-top: 60px;
+    }
   </style>
 </head>
 
 <body>
-  <script src="bundle.js"></script>
-  <div class="project-header">
-    <header-section></header-section>
-  </div>
+  <script src="ui.js"></script>
+  <header-section></header-section>
   <div class="project-container">
     <div class="projects-grid">
       <a class="project" href="https://codercat.tk/dying-to-find/" alt="dying-to-find">
@@ -89,8 +91,6 @@
         <img src="assets/imgs/mars-simulation-0.jpg">
       </a>
     </div>
-
-    <!-- <img class="pin-board" src="assets/svg/pin_board.svg" alt="pin board"> -->
   </div>
 </body>
 
