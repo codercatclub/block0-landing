@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Zero Contacts</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-size: 16px;
+    }
+
+    header-section::part(container) {
+      margin-top: 60px;
+    }
+
+    .container {
+      width: 80%;
+      margin: 60px auto 0 auto;
+      display: flex;
+    }
+
+    .img-container {
+      display: flex;
+      flex: 1;
+    }
+
+    img {
+      max-width: 85%;
+      height: auto;
+    }
+
+    form {
+      flex: 1;
+    }
+
+    .input-block {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .input-block label {
+      font-family: Lato;
+      margin-bottom: 8px;
+    }
+
+    .submit-btn {
+      margin-top: 20px;
+      width: 100px;
+      height: 0px;
+    }
+
+    input {
+      height: 30px;
+      padding: 0 8px 0 8px;
+      border-radius: 26px;
+    }
+
+    textarea {
+      padding: 10px 8px 10px 8px;
+      resize: none;
+      border-radius: 18px;
+    }
+
+    input, textarea {
+      border-style:solid;
+      border-color: black;
+      border-width: 1px;
+      font-family: Lato;
+      font-size: 14px;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-width: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="ui.js"></script>
+  <header-section></header-section>
+  <div class="container">
+    <div class="img-container">
+      <img src="assets/imgs/anatomy.svg" alt="anatomy" />
+    </div>
+    <form action="/action_page.php">
+      
+      <div class="input-block">
+        <label for="fname">Name given to you on Terra</label>
+        <input type="text" id="fname" name="fname" required />
+      </div>
+      
+      <div class="input-block">
+        <label for="lname">Email address so that we can reach you</label>
+        <input type="email" required  id="lname" name="lname" />
+      </div>
+      
+      <div class="input-block">
+        <label for="lname">Subject of why are you saing hello</label>
+        <input type="text" id="lname" name="lname" />
+      </div>
+
+      <div class="input-block">
+        <label for="lname">Tell us more</label>
+        <textarea type="text" id="lname" name="lname"></textarea>
+      </div>
+
+      <input class="submit-btn" type="submit" value="Send">
+    </form>
+  </div>
+</body>
+
+</html>
