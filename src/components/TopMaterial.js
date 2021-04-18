@@ -36,6 +36,16 @@ export default {
     this.el.addEventListener("object3dset", () => {
       this.setChildMaterials();
     });
+
+    const cam = document.querySelector("a-camera");
+    this.char = document.querySelector("#char");
+
+    if (!("scroll" in cam.components)) {
+      console.log('[-] Missing requred scroll component on', cam);
+      return
+    }
+
+    this.motion = cam.components.scroll.motion;
   },
 
   /** Assign material to all child meshes */
@@ -115,9 +125,13 @@ export default {
   tick: function (time, timeDelta) {
     this.materialShaders.forEach((shader) => {
       shader.uniforms.timeMsec.value = time / 1500;
-      shader.uniforms.progress.value = window.clampT;
-      shader.uniforms.progressY.value = window.clampTY;
-      shader.uniforms.progressM.value = window.clampM;
+
+      // TODO: Camera position avalable as this.motion.current
+      // Character position - this.char.object3D.position
+
+      // shader.uniforms.progress.value = ;
+      // shader.uniforms.progressY.value = window.clampTY;
+      // shader.uniforms.progressM.value = window.clampM;
     });
   },
 };

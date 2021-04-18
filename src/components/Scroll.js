@@ -38,8 +38,6 @@ export default {
       const y = event.touches ? event.touches[0].clientY : event.clientY;
       const distance = (this.touchStart - y) * 2;
 
-      console.log('event.touches[0].force', event.touches[0].force)
-
       this.motion.target = this.motion.position + distance;
     });
 
