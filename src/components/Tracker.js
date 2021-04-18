@@ -29,6 +29,7 @@ export default {
       left: 0px;
       transform-origin: 0px 0px 0px;
       pointer-events: all;
+      z-index: 10;
     `;
   },
 

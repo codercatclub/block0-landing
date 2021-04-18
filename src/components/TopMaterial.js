@@ -6,7 +6,7 @@ import TopFrag from "../shaders/TopFrag.glsl";
 
 export default {
   schema: {
-    offset: { type: "vec2" , default: [-2.63, 1.20]},
+    offset: { type: "vec2", default: [-2.63, 1.2] },
     timeMsec: { default: 1 },
     progress: { default: 1 },
     progressY: { default: 1 },
@@ -20,8 +20,8 @@ export default {
     this.uniforms = this.initVariables(this.data);
 
     this.materialOptions = {
-      transparent : (this.data.alpha < 1.0),
-      side : (this.data.alpha < 1.0) ? THREE.FrontSide : THREE.DoubleSide
+      transparent: this.data.alpha < 1.0,
+      side: this.data.alpha < 1.0 ? THREE.FrontSide : THREE.DoubleSide,
     };
 
     //push atleast one
@@ -36,7 +36,6 @@ export default {
     this.el.addEventListener("object3dset", () => {
       this.setChildMaterials();
     });
-
   },
 
   /** Assign material to all child meshes */
@@ -84,8 +83,8 @@ export default {
     let key;
     let variables = {};
     for (key in data) {
-      let val = data[key]
-      if(key.includes("color")) {
+      let val = data[key];
+      if (key.includes("color")) {
         val = new THREE.Color(val);
       }
       variables[key] = {
@@ -102,8 +101,8 @@ export default {
 
     let key;
     for (key in data) {
-      let val = data[key]
-      if(key.includes("color")) {
+      let val = data[key];
+      if (key.includes("color")) {
         val = new THREE.Color(val);
       }
       this.materialShaders.forEach((shader) => {
@@ -115,7 +114,7 @@ export default {
 
   tick: function (time, timeDelta) {
     this.materialShaders.forEach((shader) => {
-      shader.uniforms.timeMsec.value = time/1500;
+      shader.uniforms.timeMsec.value = time / 1500;
       shader.uniforms.progress.value = window.clampT;
       shader.uniforms.progressY.value = window.clampTY;
       shader.uniforms.progressM.value = window.clampM;

@@ -23,7 +23,7 @@ export default class Header extends HTMLElement {
       </div>
     `;
 
-    const tab = window.location.pathname.split('/').pop();
+    const tab = window.location.pathname.split("/").pop();
 
     const styleString = css`
       @font-face {
@@ -88,20 +88,24 @@ export default class Header extends HTMLElement {
 
       nav a:nth-child(1) {
         color: #e83731;
+        /* color: #c82d28; */
       }
 
       nav a:nth-child(3) {
         color: #e2b422;
+        /* color: #bd9516; */
       }
 
       nav a:nth-child(5) {
         color: #008bc5;
+        /* color: #0678a8; */
       }
 
       nav a:nth-child(7) {
         color: #3da9a4;
+        /* color: #34918c; */
       }
-  `;
+    `;
 
     const style = document.createElement("style");
     style.textContent = styleString[0].replace("<tab>", tab);
