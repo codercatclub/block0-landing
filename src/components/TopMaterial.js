@@ -127,20 +127,20 @@ export default {
   
 
     let clampT = Math.max(Math.min(charPos, -6.5), -7.5);
-    window.clampT = -(clampT+ 6.5)/(-6.5 + 7.5)
-    window.clampTY = charPos;
+    clampT = -(clampT+ 6.5)/(-6.5 + 7.5)
+    let clampTY = charPos;
     let clampM = Math.max(Math.min(charPos, -6.5), -9);
-    window.clampM = -(clampM+ 6.5)/(-6.5 + 9)
+    clampM = -(clampM+ 6.5)/(-6.5 + 9)
     let clampG = Math.max(Math.min(charPos, -35.29), -36.6);
-    window.clampG = -(clampG+ 35.29)/(-35.29 + 36.6)
+    clampG = -(clampG+ 35.29)/(-35.29 + 36.6)
     let clampS = Math.max(Math.min(charPos, -36.0), -38.6);
-    window.clampS = -(clampS+ 36.0)/(-36.0 + 38.6)
+    clampS = -(clampS+ 36.0)/(-36.0 + 38.6)
 
     this.materialShaders.forEach((shader) => {
       shader.uniforms.timeMsec.value = time / 1500;
-      shader.uniforms.progress.value = window.clampT;
-      shader.uniforms.progressY.value = window.clampTY;
-      shader.uniforms.progressM.value = window.clampM;
+      shader.uniforms.progress.value = clampT;
+      shader.uniforms.progressY.value = clampTY;
+      shader.uniforms.progressM.value = clampM;
     });
   },
 };
