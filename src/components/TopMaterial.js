@@ -123,15 +123,23 @@ export default {
   },
 
   tick: function (time, timeDelta) {
+    let charPos = this.char.object3D.position.y;
+
+    let clampT = Math.max(Math.min(charPos, -6.5), -7.5);
+    window.clampT = -(clampT+ 6.5)/(-6.5 + 7.5)
+    window.clampTY = this.el.object3D.position.y
+    let clampM = Math.max(Math.min(charPos, -6.5), -9);
+    window.clampM = -(clampM+ 6.5)/(-6.5 + 9)
+    let clampG = Math.max(Math.min(charPos, -35.29), -36.6);
+    window.clampG = -(clampG+ 35.29)/(-35.29 + 36.6)
+    let clampS = Math.max(Math.min(charPos, -36.0), -38.6);
+    window.clampS = -(clampS+ 36.0)/(-36.0 + 38.6)
+
     this.materialShaders.forEach((shader) => {
       shader.uniforms.timeMsec.value = time / 1500;
-
-      // TODO: Camera position avalable as this.motion.current
-      // Character position - this.char.object3D.position
-
-      // shader.uniforms.progress.value = ;
-      // shader.uniforms.progressY.value = window.clampTY;
-      // shader.uniforms.progressM.value = window.clampM;
+      shader.uniforms.progress.value = window.clampT;
+      shader.uniforms.progressY.value = window.clampTY;
+      shader.uniforms.progressM.value = window.clampM;
     });
   },
 };
