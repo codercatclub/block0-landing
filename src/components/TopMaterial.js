@@ -125,7 +125,6 @@ export default {
   tick: function (time, timeDelta) {
     let charPos = this.char.object3D.position.y;
   
-
     let clampT = Math.max(Math.min(charPos, -6.5), -7.5);
     clampT = -(clampT+ 6.5)/(-6.5 + 7.5)
     let clampTY = charPos;

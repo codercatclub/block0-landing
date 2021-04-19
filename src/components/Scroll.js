@@ -30,7 +30,9 @@ export default {
       this.isDown = true;
 
       this.motion.position = this.motion.current;
-      this.touchStart = event.touches ? event.touches[0].clientY : event.clientY;
+      this.touchStart = event.touches
+        ? event.touches[0].clientY
+        : event.clientY;
     });
 
     document.addEventListener("touchmove", (event) => {
@@ -60,7 +62,6 @@ export default {
       new THREE.Vector2(0.8333333333333333, 0.8333333333333333),
       new THREE.Vector2(1, 1),
     ]);
-
   },
 
   tick: function (time) {
@@ -79,10 +80,6 @@ export default {
       finalY = this.totalTravel + -33 * (t - 1);
     }
 
-    this.cam.position.set(
-      this.camP.x,
-      finalY + this.initPosY,
-      this.camP.z
-    );
+    this.cam.position.set(this.camP.x, finalY + this.initPosY, this.camP.z);
   },
 };

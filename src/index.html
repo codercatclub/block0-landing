@@ -41,6 +41,8 @@
     });
   </script>
 
+  <noscript>This site require JavaScript to run.</noscript>
+
   <div class="overlay">
     <header-section id="title-container"></header-section>
 
@@ -78,8 +80,8 @@
     <h1>Some other text</h1> -->
   </div>
 
-  <a-scene renderer="colorManagement: true" background="color: #ffffff" visible=true
-    loading-screen="enabled: false" cursor="rayOrigin: mouse" settings="pixelRatio: 1.5" stats vr-mode-ui="enabled: false">
+  <a-scene renderer="colorManagement: true" background="color: #ffffff" visible=true loading-screen="enabled: false"
+    cursor="rayOrigin: mouse" settings="pixelRatio: 1.5" vr-mode-ui="enabled: false" media-queries>
 
     <a-assets>
       <a-asset-item id="evironment" src="assets/models/env.glb"></a-asset-item>
@@ -89,9 +91,9 @@
       scroll>
     </a-camera>
 
-    <a-entity position="0 10 0" tracker="el: title-container; alignW: center;"></a-entity>
+    <a-entity id="title-dumy" position="0 10 0" tracker="el: title-container; alignW: center;"></a-entity>
 
-    <a-entity id="char" position="0 -0.8 0" gltf-part="src: #evironment; part: char" char-mover
+    <a-entity id="char" position="0 6 0" gltf-part="src: #evironment; part: char" char-mover
       material="shader: flat; vertexColors: vertex;"></a-entity>
 
     <a-entity gltf-part="src: #evironment; part: center_sides" top-material="alpha: 0.6;"></a-entity>
@@ -133,7 +135,6 @@
     </a-entity>
 
   </a-scene>
-
 </body>
 
 </html>

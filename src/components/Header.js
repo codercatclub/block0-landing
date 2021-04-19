@@ -9,7 +9,7 @@ export default class Header extends HTMLElement {
     template.innerHTML = html`
       <div id="title-container" part="container">
         <a href="/">
-          <h1 id="title">BLOCK ZERO</h1>
+          <div id="title">BLOCK ZERO</div>
         </a>
         <nav id="nav">
           <a href="projects.html">projects</a>
@@ -41,7 +41,7 @@ export default class Header extends HTMLElement {
         src: url(assets/fonts/Lato-Bold.ttf);
       }
 
-      h1 {
+      #title {
         font-family: AbolitionRegular;
         font-size: 48px;
         letter-spacing: 52px;
@@ -56,12 +56,6 @@ export default class Header extends HTMLElement {
         display: flex;
         flex-direction: column;
         align-items: center;
-      }
-
-      .equal {
-        font-family: AbolitionRegular;
-        font-size: 120px;
-        margin-top: 30px;
       }
 
       nav {
@@ -104,6 +98,24 @@ export default class Header extends HTMLElement {
       nav a:nth-child(7) {
         color: #3da9a4;
         /* color: #34918c; */
+      }
+
+      @media screen and (max-width: 768px) {
+        #title {
+          letter-spacing: 10px;
+        }
+
+        nav {
+          margin-top: 25px;
+        }
+
+        a {
+          text-decoration: none;
+          color: black;
+          font-family: Lato;
+          font-size: 18px;
+          letter-spacing:1px;
+        }
       }
     `;
 

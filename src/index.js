@@ -16,6 +16,7 @@ import Link from './components/Link';
 import Tracker from './components/Tracker';
 import Layout from './components/Layout';
 import GlobalSettings from './components/GlobalSettings';
+import MediaQueries from './components/MediaQueries';
 
 // Register all shaders
 
@@ -34,3 +35,4 @@ AFRAME.registerComponent('hlink', Link);
 AFRAME.registerComponent('tracker', Tracker);
 AFRAME.registerComponent('layout', Layout);
 AFRAME.registerComponent('settings', GlobalSettings);
+AFRAME.registerComponent('media-queries', MediaQueries);
