@@ -124,10 +124,11 @@ export default {
 
   tick: function (time, timeDelta) {
     let charPos = this.char.object3D.position.y;
+  
 
     let clampT = Math.max(Math.min(charPos, -6.5), -7.5);
     window.clampT = -(clampT+ 6.5)/(-6.5 + 7.5)
-    window.clampTY = this.el.object3D.position.y
+    window.clampTY = charPos;
     let clampM = Math.max(Math.min(charPos, -6.5), -9);
     window.clampM = -(clampM+ 6.5)/(-6.5 + 9)
     let clampG = Math.max(Math.min(charPos, -35.29), -36.6);
