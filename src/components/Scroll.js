@@ -23,6 +23,7 @@ export default {
       const speed = normalized.pixelY;
 
       this.motion.target += speed;
+      this.motion.target = Math.max(this.motion.target, 0);
     });
 
     document.addEventListener("touchstart", (event) => {
@@ -39,6 +40,7 @@ export default {
       const distance = (this.touchStart - y) * 2;
 
       this.motion.target = this.motion.position + distance;
+      this.motion.target = Math.max(this.motion.target, 0);
     });
 
     document.addEventListener("touchend", () => {
@@ -68,7 +70,7 @@ export default {
       this.motion.ease
     );
 
-    const t = Math.max(this.motion.current, 0) / this.totalScroll;
+    const t = this.motion.current / this.totalScroll;
     let finalY = 0;
     if (t <= 1) {
       finalY = this.totalTravel * this.curve.getPointAt(t).y;

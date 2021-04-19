@@ -25,17 +25,17 @@ export default {
   },
 
   tick: function (time) {
-           // our animation runs from 500 - 2000? scaled by screen?
-       let t = Math.max(this.motion.current, 0)/this.totalScroll;
-       let finalY = 0
-       if(t <= 1) {
-         finalY = this.totalTravel*this.curve.getPointAt(t).y;
-       } else {
-         //we have passed animation apply constant curve
-         finalY = this.totalTravel + -33*(t - 1);
-       }
-        this.t = finalY + this.initPosY;
-        this.el.object3D.position.set(this.el.object3D.position.x, this.t, this.el.object3D.position.z);
+      // our animation runs from 500 - 2000? scaled by screen?
+      const t = this.motion.current / this.totalScroll;
+      let finalY = 0
+      if(t <= 1) {
+        finalY = this.totalTravel*this.curve.getPointAt(t).y;
+      } else {
+        //we have passed animation apply constant curve
+        finalY = this.totalTravel + -33*(t - 1);
+      }
+      this.t = finalY + this.initPosY;
+      this.el.object3D.position.set(this.el.object3D.position.x, this.t, this.el.object3D.position.z);
     // // if the scroll pos is within range, we trigger animation
 
   },
