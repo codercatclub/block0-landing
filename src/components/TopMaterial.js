@@ -123,7 +123,10 @@ export default {
   },
 
   tick: function (time, timeDelta) {
-    let charPos = this.char.object3D.position.y;
+    //note: this 6.8 offset was because kiko changed center position of character.
+    //i am adding this offset just so that i don't have to change all of the transition numbers
+    //previously calculated
+    let charPos = this.char.object3D.position.y - 6.8;
   
     let clampT = Math.max(Math.min(charPos, -6.5), -7.5);
     clampT = -(clampT+ 6.5)/(-6.5 + 7.5)
