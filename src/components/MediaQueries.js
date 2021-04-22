@@ -10,20 +10,23 @@ export default {
     const camera = document.querySelector('#camera');
     const character = document.querySelector('#char');
     const title = document.querySelector('#title-dumy');
+    const avatarGroup = document.querySelector('#avatar-group');
 
     function handleMobileChange(e) {
       if (e.matches) {
         camera.setAttribute("position", "0 5.3 25")
         character.setAttribute("scale", "1.7 1.7 1.7")
         title.setAttribute("position", "0 13 0")
+        avatarGroup.setAttribute("position", "0 -31 0")
       }
     }
-
+    
     function handleDesktopChange(e) {
       if (e.matches) {
         camera.setAttribute("position", "0 5.3 15")
         character.setAttribute("scale", "1 1 1")
         title.setAttribute("position", "0 10 0")
+        avatarGroup.setAttribute("position", "0 -29 0")
       }
     }
 

@@ -14,7 +14,7 @@ export default class Header extends HTMLElement {
         <nav id="nav">
           <a href="projects.html">projects</a>
           <div class="nav-div">|</div>
-          <a href="/about/">about us</a>
+          <a class="about" href="#">about us</a>
           <div class="nav-div">|</div>
           <a href="news.html">news</a>
           <div class="nav-div">|</div>
@@ -123,5 +123,18 @@ export default class Header extends HTMLElement {
     style.textContent = styleString[0].replace("<tab>", tab);
 
     this.shadowRoot.append(style, template.content.cloneNode(true));
+
+    const about = this.shadowRoot.querySelector('.about')
+
+    about.addEventListener('click', e => {
+      if (location.pathname !== '/') {
+        location.href = '/'
+      };
+
+      const cam = document.querySelector('a-camera');
+      const aboutScrollPos = 4250;
+
+      cam.components['scroll'].motion.target = aboutScrollPos;
+    });
   }
 }

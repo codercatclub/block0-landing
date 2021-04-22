@@ -10,6 +10,72 @@
     header-section::part(container) {
       z-index: 10;
     }
+
+    .top-line {
+      font-family: LatoBold;
+      letter-spacing: 3.5px;
+      font-size: 16px;
+      color: black;
+      margin-top: 30px;
+    }
+
+    .spacer {
+      height: 2700px;
+      width: 20%;
+      /* background-color: yellow; */
+      margin: 50px;
+    }
+
+    #about-container {
+      width: 45%;
+      margin: auto;
+      display: flex;
+    }
+
+    .about-text {
+      font-family: Lato;
+      font-size: 22px;
+      letter-spacing: 3.5px;
+      text-align: justify;
+      flex-basis: 100%;
+      flex: 1;
+      padding-top: 20px;
+    }
+
+    .about-img {
+      flex-basis: 100%;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .about-img img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    .av {
+      font-family: Lato;
+      letter-spacing: 3.5px;
+      font-size: 20px;
+    }
+
+
+    @media screen and (max-width: 1200px) {
+      #about-container {
+        width: 90%;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      #about-container {
+        width: 90%;
+      }
+
+      .about-text {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 
@@ -47,9 +113,6 @@
     <header-section id="title-container"></header-section>
 
     <div id="about-container">
-      <div class="about-img">
-        <img src="assets/imgs/CharGroup.png" />
-      </div>
       <div class="about-text">
         <h2>About Us</h2>
         <p>
@@ -105,9 +168,9 @@
     <a-entity gltf-part="src: #evironment; part: backdrop1" transparent></a-entity>
 
     <!-- ABOUT US -->
-    <a-entity position="0 -49 0" tracker="el: about-container; alignW: center; alignH: center;"></a-entity>
+    <a-entity position="0 -25 0" tracker="el: about-container; alignW: center; alignH: center;"></a-entity>
 
-    <a-entity layout="rows: 2; cols: 4; cellWidth: 3; cellHeight: 2.5;" position="0 -55 0">
+    <a-entity id="avatar-group" layout="rows: 2; cols: 4; cellWidth: 3; cellHeight: 2.5;" position="0 -29 0">
       <a-entity gltf-part="src: #evironment; part: avatar" scale="0.8 0.8 0.8"
         material="shader: flat; vertexColors: vertex;"
         tracker="el: av1; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
@@ -135,6 +198,7 @@
     </a-entity>
 
   </a-scene>
+
 </body>
 
 </html>
