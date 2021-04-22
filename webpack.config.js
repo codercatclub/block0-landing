@@ -35,6 +35,10 @@ module.exports = {
           to: '.',
         },
         {
+          from: 'src/news.html',
+          to: '.',
+        },
+        {
           from: 'src/styles.css',
           to: '.',
         },

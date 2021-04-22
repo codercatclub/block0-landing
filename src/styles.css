@@ -13,6 +13,11 @@
   src: url(assets/fonts/Lato-Bold.ttf);
 }
 
+@font-face {
+  font-family: BradleyItalic;
+  src: url(assets/fonts/Bradley-hand-itc.ttf);
+}
+
 html, body {
   margin: 0;
   /* overscroll-behavior: none !important; */

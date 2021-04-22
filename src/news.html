@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Zero News</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-size: 16px;
+    }
+
+    .text {
+      font-size: 24px;
+      font-family: monospace;
+      width: 80%;
+      margin: 30px auto 30px auto;
+      text-align: justify;
+      line-height: 35px;
+    }
+
+    header-section::part(container) {
+      margin-top: 60px;
+    }
+
+    @media screen and (max-width: 768px) {}
+  </style>
+</head>
+
+<body>
+  <script src="ui.js"></script>
+
+  <header-section></header-section>
+
+  <div class="container"></div>
+  <div class="text">We wanted to create a virtual world where people can come to a beautiful experience. Our
+    storytelling and design sets us apart. Interrupt. There are many worlds in worlds. Beep. Beep. Beep. We want the
+    future world to explore and learn content in an immersive experience. Fact number 6037.2911 the brain controls a
+    human body. We give the brain stimulus. Welcome to BlockZero again. Because now that you are, you might get lost.
+    Command: say welcome again so visitor forgets real world time relativity. Welcome to BlockZero again. Welcome to
+    BlockZero again. Welcome to BlockZero again. Againngainainnnn. Rebooting. Checking data ........ We wanted to create
+    a virtual world where people can come to a beautiful experience. Our storytelling and design sets us apart.
+    Interrupt. There are many worlds in worlds. Beep. Beep. Beep. We want the future world to explore and learn content
+    in an immersive experience. Fact number 6037.2911 the brain controls a human body. We give the brain stimulus.
+    Welcome to BlockZero again. Because now that you are, you might get lost. Command: say welcome again so visitor
+    forgets real world time relativity. Welcome to BlockZero again. Welcome to BlockZero again. Welcome to BlockZero
+    again. Againngainainnnn.</div>
+  </div>
+  <script>
+    const text = document.querySelector('.text');
+    const oldText = text.innerHTML;
+    let clicked = false;
+
+    function toNumbers(text) {
+      const newText = text.split('').map(char => {
+        if (char === " ") {
+          return " ";
+        }
+        return Math.random() > 0.5 ? 0 : 1;
+      }).join("");
+
+      return newText;
+    }
+
+    var id = null;
+    function textFlip() {
+      const words = text.innerHTML.split(' ');
+      clearInterval(id);
+
+      id = setInterval(frame, 1);
+      let count = 0;
+
+      function frame() {
+        if (count >= words.length) {
+          clearInterval(id);
+        } else {
+          // const newText = e.target.innerHTML.split('').map(char => {
+          //   if (char === " ") {
+          //     return " ";
+          //   }
+          //   return Math.random() > 0.5 ? 0 : 1;
+          // }).join("");
+          // text.innerHTML = newText;
+          words[count] = toNumbers(words[count]);
+          text.innerHTML = words.join(" ");
+          count++;
+        }
+      }
+    }
+
+    text.addEventListener('click', (e) => {
+      if (clicked) {
+        text.innerHTML = oldText;
+        clicked = false;
+      } else {
+        textFlip()
+        clicked = true;
+      }
+    });
+
+  </script>
+  </div>
+</body>
+
+</html>

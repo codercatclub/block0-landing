@@ -3,4 +3,4 @@ node_modules/
 *.hip
 backup/
 .DS_*
-dist
+./dist/

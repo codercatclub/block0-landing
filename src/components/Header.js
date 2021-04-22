@@ -16,7 +16,7 @@ export default class Header extends HTMLElement {
           <div class="nav-div">|</div>
           <a href="/about/">about us</a>
           <div class="nav-div">|</div>
-          <a href="/news/">news</a>
+          <a href="news.html">news</a>
           <div class="nav-div">|</div>
           <a href="contacts.html">contacts</a>
         </nav>
