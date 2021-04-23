@@ -45,6 +45,7 @@ export default {
         this.el.object3D.scale.set(scaleT, scaleT, scaleT)
         this.el.object3D.rotation.z = -(Math.PI/2) * midT;
         this.el.object3D.rotation.y = -(Math.PI/2) * midT;
+        this.el.object3D.position.x = 0.45*midT;
       } else {
         // stop 
         finalY = this.totalTravel + -33*(endTransition - 1);
