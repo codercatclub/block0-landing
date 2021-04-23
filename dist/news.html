@@ -93,9 +93,10 @@
       } else {
         encodedText += Math.random() > 0.5 ? "1" : "0";
       }
-      visibleText += plainText[i];
+      visibleText += encodedText[i];
       idcs.push(i)
     }
+    text.innerHTML = visibleText;
     idcs = shuffle(idcs);
 
     var id = null;
@@ -116,7 +117,7 @@
           for (let i = 0; i < sIdcs.length; i++) {
             let idx = sIdcs[i];
             if (i < transitionT * sIdcs.length) {
-              visibleText = visibleText.replaceAt(idx, clicked ? encodedText[idx] : plainText[idx]);
+              visibleText = visibleText.replaceAt(idx, clicked ? plainText[idx] : encodedText[idx]);
             }
           }
           text.innerHTML = visibleText;
