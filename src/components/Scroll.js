@@ -73,11 +73,14 @@ export default {
 
     const t = this.motion.current / this.totalScroll;
     let finalY = 0;
+    let endingT = 1.19;
     if (t <= 1) {
       finalY = this.totalTravel * this.curve.getPointAt(t).y;
-    } else {
+    } else if (t < endingT){
       //we have passed animation apply constant curve
       finalY = this.totalTravel + -33 * (t - 1);
+    } else {
+      finalY = this.totalTravel + -33 * (endingT - 1);
     }
 
     this.cam.position.set(this.camP.x, finalY + this.initPosY, this.camP.z);
