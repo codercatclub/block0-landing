@@ -26,10 +26,11 @@ export default {
 
   tick: function (time) {
       // our animation runs from 500 - 2000? scaled by screen?
-      const t = this.motion.current / this.totalScroll;
+      let t = this.motion.current / this.totalScroll;
       const c = this.el.object3D.position.y;
       let startTransition = 1.18;
       let endTransition = 1.331;
+
       let finalY = 0
       if(t <= 1) {
         finalY = this.totalTravel*this.curve.getPointAt(t).y;

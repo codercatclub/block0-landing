@@ -12,6 +12,9 @@ export default {
     this.isDown = false;
     this.touchStart = 0;
 
+    this.endingT = 1.19;
+
+
     this.motion = {
       ease: 0.1,
       current: 0,
@@ -24,6 +27,7 @@ export default {
 
       this.motion.target += speed;
       this.motion.target = Math.max(this.motion.target, 0);
+      this.motion.target = Math.min(this.motion.target, 1.331 * this.totalScroll);
     });
 
     document.addEventListener("touchstart", (event) => {
@@ -43,6 +47,7 @@ export default {
 
       this.motion.target = this.motion.position + distance;
       this.motion.target = Math.max(this.motion.target, 0);
+      this.motion.target = Math.min(this.motion.target, this.endingT * this.totalScroll);
     });
 
     document.addEventListener("touchend", () => {
@@ -71,16 +76,17 @@ export default {
       this.motion.ease
     );
 
-    const t = this.motion.current / this.totalScroll;
+    let t = this.motion.current / this.totalScroll;
+
     let finalY = 0;
-    let endingT = 1.19;
+
     if (t <= 1) {
       finalY = this.totalTravel * this.curve.getPointAt(t).y;
-    } else if (t < endingT){
+    } else if (t < this.endingT){
       //we have passed animation apply constant curve
       finalY = this.totalTravel + -33 * (t - 1);
     } else {
-      finalY = this.totalTravel + -33 * (endingT - 1);
+      finalY = this.totalTravel + -33 * (this.endingT - 1);
     }
 
     this.cam.position.set(this.camP.x, finalY + this.initPosY, this.camP.z);
