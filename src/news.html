@@ -53,50 +53,81 @@
     again. Againngainainnnn.</div>
   </div>
   <script>
+    //---------Helper Functions---------
+    String.prototype.replaceAt = function (index, char) {
+      var a = this.split("");
+      a[index] = char;
+      return a.join("");
+    }
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
+
+    //------------------------------
+
     const text = document.querySelector('.text');
-    const oldText = text.innerHTML;
+    const plainText = text.innerHTML;
     let clicked = false;
 
-    function toNumbers(text) {
-      const newText = text.split('').map(char => {
-        if (char === " ") {
-          return " ";
-        }
-        return Math.random() > 0.5 ? 0 : 1;
-      }).join("");
-
-      return newText;
+    let encodedText = ""
+    let visibleText = ""
+    let idcs = []
+    for (let i = 0; i < plainText.length; i++) {
+      if (plainText[i] == " ") {
+        encodedText += " "
+      } else {
+        encodedText += Math.random() > 0.5 ? "1" : "0";
+      }
+      visibleText += plainText[i];
+      idcs.push(i)
     }
+    idcs = shuffle(idcs);
 
     var id = null;
     function textFlip() {
-      const words = text.innerHTML.split(' ');
       clearInterval(id);
 
       id = setInterval(frame, 1);
       let count = 0;
+      let transitionT = 0;
+
+      let sIdcs = this.shuffle(idcs)
 
       function frame() {
-        if (count >= words.length) {
+        if (transitionT >= 1) {
           clearInterval(id);
         } else {
-          // const newText = e.target.innerHTML.split('').map(char => {
-          //   if (char === " ") {
-          //     return " ";
-          //   }
-          //   return Math.random() > 0.5 ? 0 : 1;
-          // }).join("");
-          // text.innerHTML = newText;
-          words[count] = toNumbers(words[count]);
-          text.innerHTML = words.join(" ");
-          count++;
+          transitionT += 0.0003 * count;
+          for (let i = 0; i < sIdcs.length; i++) {
+            let idx = sIdcs[i];
+            if (i < transitionT * sIdcs.length) {
+              visibleText = visibleText.replaceAt(idx, clicked ? encodedText[idx] : plainText[idx]);
+            }
+          }
+          text.innerHTML = visibleText;
         }
+        count++;
       }
     }
 
     text.addEventListener('click', (e) => {
       if (clicked) {
-        text.innerHTML = oldText;
+        textFlip()
         clicked = false;
       } else {
         textFlip()
