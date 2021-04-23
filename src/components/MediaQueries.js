@@ -26,7 +26,7 @@ export default {
         camera.setAttribute("position", "0 5.3 15")
         character.setAttribute("scale", "1 1 1")
         title.setAttribute("position", "0 10 0")
-        avatarGroup.setAttribute("position", "0 -29 0")
+        avatarGroup.setAttribute("position", "0 -28.5 0")
       }
     }
 
