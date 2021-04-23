@@ -12,24 +12,67 @@
       font-size: 16px;
       background-image: url("assets/imgs/background1.png");
       background-size: cover;
-      background-position: 0% -100%;
+      background-position: 0% 30vh;
       background-repeat: no-repeat;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      background-image: url("assets/imgs/atricle.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 50%;
+      margin: 50px auto 30px auto;
+      height: 1200px;
+    }
+
+    h1 {
+      font-family: monospace;
+      text-align: justify;
+      font-size: 28px;
+      margin: 30px 3vw 20px 6vw;
     }
 
     .text {
       font-size: 18px;
       font-family: monospace;
-      width: 80%;
-      margin: 30px auto 30px auto;
       text-align: justify;
       line-height: 35px;
+      margin: 20px 3vw 60px 6vw;
+    }
+
+    .text:hover {
+      cursor: pointer;
     }
 
     header-section::part(container) {
       margin-top: 60px;
     }
 
-    @media screen and (max-width: 768px) {}
+    @media screen and (max-width: 1200px) {
+      .container {
+        background-image: unset;
+        background-color: white;
+        height: unset;
+      }
+
+      .text {
+        margin: 20px 30px 20px 30px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        background-image: unset;
+        background-color: unset;
+        width: 100%;
+      }
+
+      .text {
+        margin: 20px 30px 20px 30px;
+      }
+    }
   </style>
 </head>
 
@@ -38,20 +81,25 @@
 
   <header-section></header-section>
 
-  <div class="container"></div>
-  <div class="text">We wanted to create a virtual world where people can come to a beautiful experience. Our
-    storytelling and design sets us apart. Interrupt. There are many worlds in worlds. Beep. Beep. Beep. We want the
-    future world to explore and learn content in an immersive experience. Fact number 6037.2911 the brain controls a
-    human body. We give the brain stimulus. Welcome to BlockZero again. Because now that you are, you might get lost.
-    Command: say welcome again so visitor forgets real world time relativity. Welcome to BlockZero again. Welcome to
-    BlockZero again. Welcome to BlockZero again. Againngainainnnn. Rebooting. Checking data ........ We wanted to create
-    a virtual world where people can come to a beautiful experience. Our storytelling and design sets us apart.
-    Interrupt. There are many worlds in worlds. Beep. Beep. Beep. We want the future world to explore and learn content
-    in an immersive experience. Fact number 6037.2911 the brain controls a human body. We give the brain stimulus.
-    Welcome to BlockZero again. Because now that you are, you might get lost. Command: say welcome again so visitor
-    forgets real world time relativity. Welcome to BlockZero again. Welcome to BlockZero again. Welcome to BlockZero
-    again. Againngainainnnn.</div>
+  <div class="container">
+    <h1 class="title">Why we are making this</h1>
+    <div class="text">We wanted to create a virtual world where people can come to a beautiful experience. Our
+      storytelling and design sets us apart. Interrupt. There are many worlds in worlds. Beep. Beep. Beep. We want the
+      future world to explore and learn content in an immersive experience. Fact number 6037.2911 the brain controls a
+      human body. We give the brain stimulus. Welcome to BlockZero again. Because now that you are, you might get lost.
+      Command: say welcome again so visitor forgets real world time relativity. Welcome to BlockZero again. Welcome to
+      BlockZero again. Welcome to BlockZero again. Againngainainnnn. Rebooting. Checking data ........ We wanted to
+      create
+      a virtual world where people can come to a beautiful experience. Our storytelling and design sets us apart.
+      Interrupt. There are many worlds in worlds. Beep. Beep. Beep. We want the future world to explore and learn
+      content
+      in an immersive experience. Fact number 6037.2911 the brain controls a human body. We give the brain stimulus.
+      Welcome to BlockZero again. Because now that you are, you might get lost. Command: say welcome again so visitor
+      forgets real world time relativity. Welcome to BlockZero again. Welcome to BlockZero again. Welcome to BlockZero
+      again. Againngainainnnn.</div>
   </div>
+  </div>
+
   <script>
     //---------Helper Functions---------
     String.prototype.replaceAt = function (index, char) {
@@ -80,34 +128,45 @@
 
     //------------------------------
 
-    const text = document.querySelector('.text');
-    const plainText = text.innerHTML;
     let clicked = false;
 
-    let encodedText = ""
-    let visibleText = ""
-    let idcs = []
-    for (let i = 0; i < plainText.length; i++) {
-      if (plainText[i] == " ") {
-        encodedText += " "
-      } else {
-        encodedText += Math.random() > 0.5 ? "1" : "0";
-      }
-      visibleText += encodedText[i];
-      idcs.push(i)
+    const text = document.querySelector('.text');
+    let encodedTextObj = {
+      plainText: text.innerHTML,
+      div: text
     }
-    text.innerHTML = visibleText;
-    idcs = shuffle(idcs);
+    const title = document.querySelector('.title');
+    let encodedTitleObj = {
+      plainText: title.innerHTML,
+      div: title
+    }
 
-    var id = null;
-    function textFlip() {
+    function init(obj) {
+      obj.encodedText = ""
+      obj.visibleText = ""
+      obj.idcs = []
+      for (let i = 0; i < obj.plainText.length; i++) {
+        if (obj.plainText[i] == " ") {
+          obj.encodedText += " "
+        } else {
+          obj.encodedText += Math.random() > 0.5 ? "1" : "0";
+        }
+        obj.visibleText += obj.encodedText[i];
+        obj.idcs.push(i)
+      }
+      obj.div.innerHTML = obj.visibleText;
+    }
+
+    init(encodedTextObj)
+    init(encodedTitleObj)
+
+    function textFlip(obj) {
+      var id = null;
       clearInterval(id);
-
       id = setInterval(frame, 1);
       let count = 0;
       let transitionT = 0;
-
-      let sIdcs = this.shuffle(idcs)
+      let sIdcs = shuffle(obj.idcs)
 
       function frame() {
         if (transitionT >= 1) {
@@ -117,10 +176,10 @@
           for (let i = 0; i < sIdcs.length; i++) {
             let idx = sIdcs[i];
             if (i < transitionT * sIdcs.length) {
-              visibleText = visibleText.replaceAt(idx, clicked ? plainText[idx] : encodedText[idx]);
+              obj.visibleText = obj.visibleText.replaceAt(idx, !clicked ? obj.encodedText[idx] : obj.plainText[idx]);
             }
           }
-          text.innerHTML = visibleText;
+          obj.div.innerHTML = obj.visibleText;
         }
         count++;
       }
@@ -128,14 +187,15 @@
 
     text.addEventListener('click', (e) => {
       if (clicked) {
-        textFlip()
+        textFlip(encodedTextObj)
+        textFlip(encodedTitleObj)
         clicked = false;
       } else {
-        textFlip()
+        textFlip(encodedTextObj)
+        textFlip(encodedTitleObj)
         clicked = true;
       }
     });
-
   </script>
   </div>
 </body>
