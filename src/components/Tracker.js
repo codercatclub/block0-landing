@@ -23,7 +23,7 @@ export default {
     const cam = document.getElementById("camera");
     this.camera = cam.object3D.getObjectByProperty("type", "PerspectiveCamera");
 
-    this.target.style.cssText = `
+    this.target.style.cssText += `
       position: absolute;
       top: 0px;
       left: 0px;
