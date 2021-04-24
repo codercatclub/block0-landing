@@ -17,6 +17,7 @@ import Tracker from './components/Tracker';
 import Layout from './components/Layout';
 import GlobalSettings from './components/GlobalSettings';
 import MediaQueries from './components/MediaQueries';
+import CharMaterial from './components/CharMaterial';
 
 // Register all shaders
 
@@ -30,6 +31,7 @@ AFRAME.registerComponent('scroll', Scroll);
 AFRAME.registerComponent('char-mover', CharMover);
 AFRAME.registerComponent('top-material', TopMaterial);
 AFRAME.registerComponent('grid-material', GridMaterial);
+AFRAME.registerComponent('char-material', CharMaterial);
 AFRAME.registerComponent('interactive', Interactive);
 AFRAME.registerComponent('hlink', Link);
 AFRAME.registerComponent('tracker', Tracker);
