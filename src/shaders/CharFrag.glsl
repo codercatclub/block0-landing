@@ -19,8 +19,8 @@ void main() {
   
 
   fColor.r += useCol * rand1(vec2(count, 1.0));
-  fColor.g += useCol * rand1(vec2(count + 0.1, 1.0)) + 0.3 * sin(2.0 * vWorldPos.y + 3.0*timeMsec);
-  fColor.b += useCol * rand1(vec2(count + 0.4, 1.0)) + 0.3 * sin(3.0*vWorldPos.y + 3.0*timeMsec);
+  fColor.g += useCol * (rand1(vec2(count + 0.1, 1.0)) + 0.2 * sin(2.0 * vWorldPos.y + 3.0*timeMsec));
+  fColor.b += useCol * (rand1(vec2(count + 0.4, 1.0)) + 0.2 * sin(3.0*vWorldPos.y + 3.0*timeMsec));
 
   fColor = max(vColor, fColor*1.7*(c + 0.4*cutoff));
 
