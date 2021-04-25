@@ -7,11 +7,14 @@ import CharFrag from "../shaders/CharFrag.glsl";
 export default {
   schema: {
     timeMsec: { default: 1 },
+    transitionT: { default: 1 },
+    useCol: { default: 0 },
   },
 
   init: function () {
+    this.useHoverTransition = this.data.transitionT > 0;
+    this.data.useCol = this.data.transitionT > 0 ? 1 : 0;
     this.uniforms = this.initVariables(this.data);
-
     this.materialOptions = {
     };
 
@@ -23,9 +26,18 @@ export default {
 
     // Set materials on default primitives
     this.setChildMaterials();
-
+    this.transitionT = 1;
     this.el.addEventListener("object3dset", () => {
       this.setChildMaterials();
+      if(this.useHoverTransition) {
+        this.transitionT = 0;
+        this.el.addEventListener('mouseenter', (evt) => {
+          this.mouseInside = true
+        });
+        this.el.addEventListener('mouseleave', (evt) => {
+          this.mouseInside = false
+        });
+      }
     });
 
   },
@@ -105,8 +117,14 @@ export default {
   },
 
   tick: function (time, timeDelta) {
+    if(this.useHoverTransition) {
+      let move = this.mouseInside ? 1 : -1;
+      this.transitionT += 0.003 * move * timeDelta;
+      this.transitionT = Math.min(Math.max(this.transitionT, 0),1)
+    }
     this.materialShaders.forEach((shader) => {
       shader.uniforms.timeMsec.value = time/1500;
+      shader.uniforms.transitionT.value = this.transitionT;
     });
   },
 };
