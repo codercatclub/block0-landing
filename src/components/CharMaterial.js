@@ -9,11 +9,18 @@ export default {
     timeMsec: { default: 1 },
     transitionT: { default: 1 },
     useCol: { default: 0 },
+    count: { default: 0 },
   },
 
   init: function () {
     this.useHoverTransition = this.data.transitionT > 0;
     this.data.useCol = this.data.transitionT > 0 ? 1 : 0;
+    if (window.charCount == undefined) {
+      window.charCount = 0;
+    } else {
+      window.charCount = window.charCount + 0.1;
+    }
+    this.data.count = window.charCount;
     this.uniforms = this.initVariables(this.data);
     this.materialOptions = {
     };

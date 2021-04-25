@@ -3,6 +3,7 @@
 uniform float timeMsec; 
 uniform float transitionT;
 uniform float useCol;
+uniform float count;
 varying vec3 vColor;
 varying vec3 vPos;
 varying vec3 vWorldPos;
@@ -17,11 +18,11 @@ void main() {
   vec3 fColor = vColor + (1.0 - cutoff*length(vPos.xyz))*vec3(1.0, 1.0, 1.0);
   
 
-  fColor.r += useCol * (0.5 + 0.5 * cos(vWorldPos.x));
-  fColor.g += useCol *(0.5 + 0.5 * sin(vWorldPos.y));
-  fColor.b += useCol *(0.5 + 0.5 * sin(0.5*vWorldPos.y));
+  fColor.r += useCol * rand1(vec2(count, 1.0));
+  fColor.g += useCol * rand1(vec2(count + 0.1, 1.0)) + 0.3 * sin(2.0 * vWorldPos.y + 3.0*timeMsec);
+  fColor.b += useCol * rand1(vec2(count + 0.4, 1.0)) + 0.3 * sin(3.0*vWorldPos.y + 3.0*timeMsec);
 
-  fColor = max(vColor, fColor*1.7*smoothstep(0.8, c, cutoff));
+  fColor = max(vColor, fColor*1.7*(c + 0.4*cutoff));
 
   gl_FragColor = vec4(mix(vColor, fColor, transitionT), 1.0);
 }
