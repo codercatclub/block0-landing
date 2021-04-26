@@ -127,7 +127,7 @@ export default class Header extends HTMLElement {
     const about = this.shadowRoot.querySelector('.about')
 
     about.addEventListener('click', e => {
-      if (location.pathname !== process.env.HOST_URL) {
+      if (location.href !== process.env.HOST_URL) {
         location.href = process.env.HOST_URL;
       };
 
