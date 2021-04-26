@@ -9,12 +9,13 @@ export default {
   },
 
   init: function () {
-    let mql = window.matchMedia('(max-width: 700px)');
+    let mql = window.matchMedia('(max-width: 768px)');
 
     if (mql.matches) {
       this.data.rows = 4;
       this.data.cols = 2;
-      this.data.cellWidth = 2.2;
+      this.data.cellWidth = 3;
+      this.data.cellHeight = 3;
     }
   },
 
