@@ -6,9 +6,9 @@ export default class Header extends HTMLElement {
     this.attachShadow({ mode: "open" });
 
     const template = document.createElement("template");
-    template.innerHTML = html`
+    template.innerHTML = `
       <div id="title-container" part="container">
-        <a href="/">
+        <a href="${process.env.HOST_URL}">
           <div id="title">BLOCK ZERO</div>
         </a>
         <nav id="nav">
@@ -128,7 +128,7 @@ export default class Header extends HTMLElement {
 
     about.addEventListener('click', e => {
       if (location.pathname !== '/') {
-        location.href = '/'
+        location.href = process.env.HOST_URL;
       };
 
       const cam = document.querySelector('a-camera');

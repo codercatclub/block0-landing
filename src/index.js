@@ -19,6 +19,9 @@ import GlobalSettings from './components/GlobalSettings';
 import MediaQueries from './components/MediaQueries';
 import CharMaterial from './components/CharMaterial';
 
+// Debug
+console.log('[+] Using host URL:', process.env.HOST_URL)
+
 // Register all shaders
 
 // Register all systems
