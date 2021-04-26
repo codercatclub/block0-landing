@@ -189,7 +189,7 @@
     <a-entity id="title-dumy" position="0 10 0" tracker="el: title-container; alignW: center;"></a-entity>
     
     <a-entity id="char" position="0 6.8 0" gltf-part="src: #evironment; part: char" char-mover
-    material="shader: flat; vertexColors: vertex;"></a-entity>
+    char-material="transitionT : 0"></a-entity>
 
     <a-entity id="punchline-tracker" position="0 5 0" tracker="el: punchline; alignW: center;"></a-entity>
 
@@ -204,43 +204,43 @@
     <a-entity gltf-part="src: #evironment; part: backdrop1" transparent></a-entity>
 
     <!-- ABOUT US -->
-    <a-entity position="0 -25 0" tracker="el: about-container; alignW: center; alignH: center;"></a-entity>
+    <a-entity position="0 -24 0" tracker="el: about-container; alignW: center; alignH: center;"></a-entity>
 
-    <a-entity id="avatar-group" layout="rows: 2; cols: 4; cellWidth: 3; cellHeight: 2.5;" position="0 -29 0">
+    <a-entity id="avatar-group" layout="rows: 2; cols: 4; cellWidth: 3; cellHeight: 2.5;" position="0 -28.5 0">
       <a-entity gltf-part="src: #evironment; part: avatar1" scale="0.8 0.8 0.8"
-        material="shader: flat; vertexColors: vertex;"
+        char-material
         tracker="el: av1; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: avatar2" scale="0.8 0.8 0.8"
-        material="shader: flat; vertexColors: vertex;"
+        char-material
         tracker="el: av2; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: avatar3" scale="0.8 0.8 0.8"
-        material="shader: flat; vertexColors: vertex;"
+        char-material
         tracker="el: av3; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: avatar4" scale="0.8 0.8 0.8"
-        material="shader: flat; vertexColors: vertex;"
+        char-material
         tracker="el: av4; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: avatar4" scale="0.8 0.8 0.8"
-        material="shader: flat; vertexColors: vertex;"
+        char-material
         tracker="el: av5; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: avatar3" scale="-0.8 0.8 0.8"
-        material="shader: flat; vertexColors: vertex;"
+        char-material
         tracker="el: av6; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: avatar2" scale="0.8 -0.8 0.8"
-        material="shader: flat; vertexColors: vertex;"
+        char-material
         tracker="el: av7; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: avatar1" scale="0.8 0.8 0.8"
-        material="shader: flat; vertexColors: vertex;"
+        char-material
         tracker="el: av8; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
     </a-entity>
 
     <a-entity position="0 -45 0" gltf-part="src: #evironment; part: char1"
-      material="shader: flat; vertexColors: vertex;"></a-entity>
+      char-material="transitionT : 0"></a-entity>
     <a-entity position="0 -45 0" gltf-part="src: #evironment; part: char2"
-      material="shader: flat; vertexColors: vertex;"></a-entity>
+      char-material="transitionT : 0"></a-entity>
     <a-entity position="0 -45 0" gltf-part="src: #evironment; part: char3"
-      material="shader: flat; vertexColors: vertex;"></a-entity>
+      char-material="transitionT : 0"></a-entity>
     <a-entity position="0 -45 0" gltf-part="src: #evironment; part: ground"
-      material="shader: flat; vertexColors: vertex;"></a-entity>
+    material="shader: flat; vertexColors: vertex;"></a-entity>
 
   </a-scene>
 
