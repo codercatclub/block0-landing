@@ -14,7 +14,7 @@ export default class Header extends HTMLElement {
         <nav id="nav">
           <a href="projects.html">projects</a>
           <div class="nav-div">|</div>
-          <a class="about" href="#">about us</a>
+          <a class="about" href="#?s=about">about us</a>
           <div class="nav-div">|</div>
           <a href="news.html">news</a>
           <div class="nav-div">|</div>
@@ -128,7 +128,7 @@ export default class Header extends HTMLElement {
 
     about.addEventListener('click', e => {
       if (location.href !== process.env.HOST_URL) {
-        location.href = process.env.HOST_URL;
+        location.href = `${process.env.HOST_URL}/#?s=about`;
       };
 
       const cam = document.querySelector('a-camera');

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --colors",
-    "start": "webpack-dev-server",
+    "start": "export HOST_URL='http://localhost:3000/' && webpack-dev-server",
     "deploy": "./tools/deploy.sh"
   },
   "keywords": [],
