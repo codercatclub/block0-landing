@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Block Zero Contacts</title>
   <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
   <style>
     body {
       font-size: 16px;
@@ -128,9 +129,9 @@
 
 <body>
   <script src="ui.js"></script>
-  
+
   <header-section></header-section>
-  
+
   <div class="container">
     <div class="img-container">
       <img class="anatomy over" src="assets/imgs/anatomy_over.png" alt="anatomy-over" />
@@ -162,14 +163,23 @@
     </form>
 
     <script>
+      (function () {
+        emailjs.init("user_GgAg57jday1RAP1MwTC9f");
+      })();
+
       const form = document.getElementById("contact-form");
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
-        const data = new FormData(form);
-        for (const [name, value] of data) {
-          console.log(name, value)
-        }
+
+        emailjs.sendForm("service_0n2bqb2", "template_v25x8rx", "#contact-form").then(
+          function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          function (error) {
+            console.log("FAILED...", error);
+          }
+        );
       }, true);
     </script>
   </div>
