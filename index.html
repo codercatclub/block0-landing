@@ -4,8 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Block0</title>
   <link rel="stylesheet" href="styles.css">
+
+  <link rel="icon" type="image/png" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+  <!-- Primary Meta Tags -->
+  <title>Block Zero</title>
+  <meta name="title" content="Block Zero">
+  <meta name="description" content="Curated space for digital expression">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="hhttps://codercatclub.github.io/block0-landing">
+  <meta property="og:title" content="Block Zero">
+  <meta property="og:description"
+    content="Curated space for digital expression">
+  <meta property="og:image" content="https://codercatclub.github.io/block0-landing/assets/social.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="hhttps://codercatclub.github.io/block0-landing">
+  <meta property="twitter:title" content="Block Zero">
+  <meta property="twitter:description"
+    content="Curated space for digital expression">
+  <meta property="twitter:image" content="https://codercatclub.github.io/block0-landing/assets/social.jpg">
+
+  <!-- Preload font to prevent pop on the first render -->
+  <link rel="preload" href="assets/fonts/Abolition-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Lato-Bold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Lato-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Bradley-hand-itc.ttf" as="font" type="font/ttf" crossorigin>
+
   <style>
     header-section::part(container) {
       z-index: 10;
@@ -86,6 +119,41 @@
       text-align: center;
     }
 
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+    }
+
+    .load-container {
+      display: flex;
+      flex-direction: column;
+      font-family: Courier New, Courier, monospace;
+      font-size: 12px;
+      width: 240px;
+    }
+
+    #progress {
+      width: 100%;
+      border-style: solid;
+      border-width: 1px;
+      border-color: black;
+      margin-bottom: 5px;
+    }
+
+    #bar {
+      width: 1%;
+      height: 10px;
+      background-color: rgb(14, 14, 14);
+    }
+
     @media screen and (max-width: 1200px) {
       #about-container {
         width: 90%;
@@ -103,7 +171,11 @@
 
       #tera-text * {
         font-size: 16px;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
+      }
+
+      #tera-text div:nth-child(1) {
+        margin-right: 50px;
       }
     }
   </style>
@@ -111,6 +183,44 @@
 
 <body>
   <script src="ui.js"></script>
+
+  <div id="loading-screen">
+    <div class="load-container">
+      <div id="progress">
+        <div id="bar"></div>
+      </div>
+      <div id="load-log">loading social affirmation</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const ascene = document.querySelector('a-scene');
+      const assets = document.querySelector('a-assets');
+      const { manager: loadManager } = assets.fileLoader;
+      const loadingScreen = document.querySelector('#loading-screen');
+
+      const barEl = document.getElementById("bar");
+      const loadLogEl = document.getElementById("load-log");
+      const width = 1;
+
+      const phrases = ['complete lack of surprise', "inflamed sense of rejection", 'smirking revenge', 'cold sweat', 'broken heart'];
+
+      loadManager.onProgress = (url, itemsLoaded, itemsTotal) => {
+        const width = (itemsLoaded / itemsTotal) * 100;
+        const idx = Math.floor(phrases.length * Math.random());
+
+        barEl.style.width = width + "%";
+        loadLogEl.innerHTML = `loading ${phrases[idx]}`;
+      }
+
+      ascene.addEventListener('loaded', () => {
+        loadingScreen.style.display = 'none';
+        console.log('[+] All assets loaded!')
+      });
+    });
+  </script>
+
   <script src="bundle.js"></script>
 
   <script>
@@ -139,47 +249,6 @@
   </script>
 
   <noscript>This site require JavaScript to run.</noscript>
-
-  <div class="overlay">
-    <header-section id="title-container"></header-section>
-
-    <div id="punchline">
-      a curated space for digital expression
-    </div>
-
-    <div id="tera-text">
-      <div>leaving tera now</div>
-      <div>entering block 0</div>
-    </div>
-
-    <div id="about-container">
-      <div class="about-text">
-        <h2>About Us</h2>
-        <p>
-          BlockZero designs and creates unique digital spaces for the NFTs community. Many NFT collectors have amazing
-          collections that are currently showcased on various underwhelming NFT platform web pages. BlockZero helps our
-          Clients design and create their own personal gallery to showcase their unique collections in an interactive
-          and immersive digital space.
-        </p>
-      </div>
-    </div>
-
-    <div class="av" id="av1">afreen</div>
-    <div class="av" id="av2">tien</div>
-    <div class="av" id="av3">ishan</div>
-    <div class="av" id="av4">melina</div>
-    <div class="av" id="av5">kirill</div>
-    <div class="av" id="av6">sneha</div>
-    <div class="av" id="av7">kashif</div>
-    <div class="av" id="av8">you</div>
-
-    <!-- <div class="equal">
-      =
-    </div>
-    <div class="top-line">a space curated for digital expression</div> -->
-    <!-- <div class="spacer"></div>
-    <h1>Some other text</h1> -->
-  </div>
 
   <a-scene renderer="colorManagement: true" background="color: #ffffff" visible=true loading-screen="enabled: false"
     cursor="rayOrigin: mouse" settings="pixelRatio: 1.5" vr-mode-ui="enabled: false" media-queries>
@@ -237,9 +306,49 @@
       <a-entity gltf-part="src: #evironment; part: char3" char-material="transitionT : 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: ground" material="shader: flat; vertexColors: vertex;"></a-entity>
     </a-entity>
-
-
   </a-scene>
+
+
+  <div class="overlay">
+    <header-section id="title-container"></header-section>
+
+    <div id="punchline">
+      a curated space for digital expression
+    </div>
+
+    <div id="tera-text">
+      <div>leaving tera now</div>
+      <div>entering block 0</div>
+    </div>
+
+    <div id="about-container">
+      <div class="about-text">
+        <h2>About Us</h2>
+        <p>
+          BlockZero designs and creates unique digital spaces for the NFTs community. Many NFT collectors have amazing
+          collections that are currently showcased on various underwhelming NFT platform web pages. BlockZero helps our
+          Clients design and create their own personal gallery to showcase their unique collections in an interactive
+          and immersive digital space.
+        </p>
+      </div>
+    </div>
+
+    <div class="av" id="av1">afreen</div>
+    <div class="av" id="av2">tien</div>
+    <div class="av" id="av3">ishan</div>
+    <div class="av" id="av4">melina</div>
+    <div class="av" id="av5">kirill</div>
+    <div class="av" id="av6">sneha</div>
+    <div class="av" id="av7">kashif</div>
+    <div class="av" id="av8">you</div>
+
+    <!-- <div class="equal">
+      =
+    </div>
+    <div class="top-line">a space curated for digital expression</div> -->
+    <!-- <div class="spacer"></div>
+    <h1>Some other text</h1> -->
+  </div>
 </body>
 
 </html>

@@ -11,6 +11,7 @@
   <style>
     body {
       font-size: 16px;
+      font-family: Lato;
       background-image: url("assets/imgs/background1.png");
       background-size: cover;
       background-position: 0% 30vh;
@@ -109,6 +110,19 @@
       opacity: 0.01;
     }
 
+    .form-success {
+      display: none;
+      font-family: LatoBold;
+      color: #45aca7;
+      margin-top: 20px;
+    }
+
+    .form-failure {
+      display: none;
+      font-family: LatoBold;
+      color: #ac4545;
+      margin-top: 20px;
+    }
 
     @media screen and (max-width: 768px) {
       .container {
@@ -137,8 +151,8 @@
       <img class="anatomy over" src="assets/imgs/anatomy_over.png" alt="anatomy-over" />
       <img class="anatomy under" src="assets/imgs/anatomy_under.png" alt="anatomy-under" />
     </div>
-    <form id="contact-form">
 
+    <form id="contact-form">
       <div class="input-block">
         <label for="fname">Name given to you on Terra</label>
         <input type="text" id="fname" name="fname" required />
@@ -159,7 +173,11 @@
         <textarea type="text" id="lname" name="more"></textarea>
       </div>
 
+      <div class="form-success">Thank you for contacting us!</div>
+      <div class="form-failure">Error happened while trying submit this form! Check console for errors.</div>
+
       <input class="submit-btn" type="submit" value="Send">
+
     </form>
 
     <script>
@@ -171,13 +189,25 @@
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();
+        const successEl = document.querySelector('.form-success');
+        const failureEl = document.querySelector('.form-failure');
+        const submitBtn = document.querySelector('.submit-btn');
+
+        successEl.style.display = 'none';
+        failureEl.style.display = 'none';
+        submitBtn.disabled = true;
 
         emailjs.sendForm("service_0n2bqb2", "template_v25x8rx", "#contact-form").then(
           function (response) {
             console.log("SUCCESS!", response.status, response.text);
+            form.reset();
+            successEl.style.display = 'block';
+            submitBtn.disabled = false;
           },
           function (error) {
             console.log("FAILED...", error);
+            failureEl.style.display = 'block';
+            submitBtn.disabled = false;
           }
         );
       }, true);
