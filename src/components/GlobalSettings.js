@@ -16,9 +16,7 @@ export default {
 
     if (section === "about") {
       const cam = document.querySelector("a-camera");
-      const aboutScrollPos = 4100;
-
-      cam.components["scroll"].motion.target = aboutScrollPos;
+      cam.components['scroll'].scrollToAbout();
     }
   },
 };

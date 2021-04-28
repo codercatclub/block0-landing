@@ -15,7 +15,6 @@ export default {
     this.endingT = 1.19;
     this.scrollClamp = 1.331;
 
-
     this.motion = {
       ease: 0.1,
       current: 0,
@@ -28,7 +27,10 @@ export default {
 
       this.motion.target += speed;
       this.motion.target = Math.max(this.motion.target, 0);
-      this.motion.target = Math.min(this.motion.target, this.scrollClamp * this.totalScroll);
+      this.motion.target = Math.min(
+        this.motion.target,
+        this.scrollClamp * this.totalScroll
+      );
     });
 
     document.addEventListener("touchstart", (event) => {
@@ -48,7 +50,10 @@ export default {
 
       this.motion.target = this.motion.position + distance;
       this.motion.target = Math.max(this.motion.target, 0);
-      this.motion.target = Math.min(this.motion.target, this.scrollClamp * this.totalScroll);
+      this.motion.target = Math.min(
+        this.motion.target,
+        this.scrollClamp * this.totalScroll
+      );
     });
 
     document.addEventListener("touchend", () => {
@@ -75,7 +80,20 @@ export default {
       this.totalScroll = 1500;
       this.scrollClamp = 1.48;
     }
+  },
 
+  scrollToAbout: function() {
+    let aboutScrollPos = 4100;
+
+    const mql = window.matchMedia("(max-width: 768px)");
+
+    if (mql.matches) {
+      aboutScrollPos = 1300;
+    }
+
+    console.log("aboutScrollPos", aboutScrollPos);
+
+    this.motion.target = aboutScrollPos;
   },
 
   tick: function (time) {
@@ -91,7 +109,7 @@ export default {
 
     if (t <= 1) {
       finalY = this.totalTravel * this.curve.getPointAt(t).y;
-    } else if (t < this.endingT){
+    } else if (t < this.endingT) {
       //we have passed animation apply constant curve
       finalY = this.totalTravel + -33 * (t - 1);
     } else {
