@@ -6,8 +6,9 @@ export default {
   init: function () {
     const obj = this.el.object3D;
     this.initPosY = obj.position.y;
-    this.totalTravel = -40;
-    this.totalScroll = 5000;
+
+    this.startTransition = 1.18;
+
     this.t = this.initPosY;
     this.pageY = 0;
     this.curve = new THREE.SplineCurve([
@@ -20,12 +21,6 @@ export default {
       new THREE.Vector2(1, 1),
     ]);
 
-    let mql = window.matchMedia("(max-width: 768px)");
-
-    if (mql.matches) {
-      this.totalTravel = -44.8;
-    }
-
     const cam = document.querySelector("a-camera");
 
     if (!("scroll" in cam.components)) {
@@ -34,35 +29,47 @@ export default {
     }
 
     this.motion = cam.components.scroll.motion;
+    this.totalTravel = cam.components.scroll.totalTravel;
+    this.totalScroll = cam.components.scroll.totalScroll;
     this.startingScale = this.el.object3D.scale.x;
+    this.endTransition = cam.components.scroll.scrollClamp;
+    this.scaleMult = 1.8;
+
+    let mql = window.matchMedia("(max-width: 768px)");
+
+    if (mql.matches) {
+      this.totalScroll = cam.components.scroll.totalScroll;
+      this.endTransition = cam.components.scroll.scrollClamp;
+      this.startingScale = 1.7;
+      this.scaleMult = 0.5;
+    }
   },
 
   tick: function (time) {
     // our animation runs from 500 - 2000? scaled by screen?
     let t = this.motion.current / this.totalScroll;
     const c = this.el.object3D.position.y;
-    let startTransition = 1.18;
-    let endTransition = 1.331;
+
 
     let finalY = 0;
     if (t <= 1) {
       finalY = this.totalTravel * this.curve.getPointAt(t).y;
-    } else if (t < startTransition) {
+    } else if (t < this.startTransition) {
       //we have passed animation apply constant curve
       finalY = this.totalTravel + -33 * (t - 1);
-    } else if (t < endTransition) {
+    } else if (t < this.endTransition) {
       //between start and end transition
       finalY = this.totalTravel + -33 * (t - 1);
       // do some scaling
-      let midT = 1.0 - (endTransition - t) / (endTransition - startTransition);
-      let scaleT = (1.0 + 1.8 * midT) * this.startingScale;
+      let midT = 1.0 - (this.endTransition - t) / (this.endTransition - this.startTransition);
+      let scaleT = (1.0 + this.scaleMult * midT) * this.startingScale;
       this.el.object3D.scale.set(scaleT, scaleT, scaleT);
       this.el.object3D.rotation.z = -(Math.PI / 2) * midT;
       this.el.object3D.rotation.y = -(Math.PI / 2) * midT;
       this.el.object3D.position.x = 0.45 * midT;
     } else {
       // stop
-      finalY = this.totalTravel + -33 * (endTransition - 1);
+      finalY = this.totalTravel + -33 * (this.endTransition - 1);
     }
     this.t = finalY + this.initPosY;
     this.el.object3D.position.set(

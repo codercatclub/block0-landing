@@ -13,6 +13,7 @@ export default {
     this.touchStart = 0;
 
     this.endingT = 1.19;
+    this.scrollClamp = 1.331;
 
 
     this.motion = {
@@ -27,7 +28,7 @@ export default {
 
       this.motion.target += speed;
       this.motion.target = Math.max(this.motion.target, 0);
-      this.motion.target = Math.min(this.motion.target, 1.331 * this.totalScroll);
+      this.motion.target = Math.min(this.motion.target, this.scrollClamp * this.totalScroll);
     });
 
     document.addEventListener("touchstart", (event) => {
@@ -47,7 +48,7 @@ export default {
 
       this.motion.target = this.motion.position + distance;
       this.motion.target = Math.max(this.motion.target, 0);
-      this.motion.target = Math.min(this.motion.target, this.endingT * this.totalScroll);
+      this.motion.target = Math.min(this.motion.target, this.scrollClamp * this.totalScroll);
     });
 
     document.addEventListener("touchend", () => {
@@ -67,6 +68,14 @@ export default {
       new THREE.Vector2(0.8333333333333333, 0.8333333333333333),
       new THREE.Vector2(1, 1),
     ]);
+
+    let mql = window.matchMedia("(max-width: 768px)");
+
+    if (mql.matches) {
+      this.totalScroll = 1500;
+      this.scrollClamp = 1.48;
+    }
+
   },
 
   tick: function (time) {
