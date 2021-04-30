@@ -20,7 +20,7 @@ export default {
         character.setAttribute("scale", "1.7 1.7 1.7");
         title.setAttribute("position", "0 13 0");
         avatarGroup.setAttribute("position", "0 -31 6");
-        charGroup.setAttribute("position", "0 -50 0");
+        charGroup.setAttribute("position", "0 -55 0");
         inviteText.setAttribute("position", "0 -43 0");
       }
     }
