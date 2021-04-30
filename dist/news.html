@@ -17,14 +17,23 @@
     }
 
     .container {
+      position: relative;
       display: flex;
       flex-direction: column;
-      background-image: url("assets/imgs/atricle.png");
-      background-size: contain;
-      background-repeat: no-repeat;
       width: 50%;
       margin: 50px auto 30px auto;
-      height: 1200px;
+      height: 90vw;
+    }
+
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -4;
+      right: 0;
+      bottom: 0;
+      max-height: 100%;
+      max-width: 100%;
     }
 
     h1 {
@@ -90,6 +99,7 @@
   <header-section></header-section>
 
   <div class="container">
+    <img class="bg" src="assets/imgs/atricle.png" alt="article-bg" />
     <h1 class="title">Why we are making this</h1>
     <div class="text">We wanted to create a virtual world where people can come to a beautiful experience. Our
       storytelling and design sets us apart. Interrupt. There are many worlds in worlds. Beep. Beep. Beep. We want the
