@@ -21,16 +21,14 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="hhttps://codercatclub.github.io/block0-landing">
   <meta property="og:title" content="Block Zero">
-  <meta property="og:description"
-    content="Curated space for digital expression">
+  <meta property="og:description" content="Curated space for digital expression">
   <meta property="og:image" content="https://codercatclub.github.io/block0-landing/assets/social.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="hhttps://codercatclub.github.io/block0-landing">
   <meta property="twitter:title" content="Block Zero">
-  <meta property="twitter:description"
-    content="Curated space for digital expression">
+  <meta property="twitter:description" content="Curated space for digital expression">
   <meta property="twitter:image" content="https://codercatclub.github.io/block0-landing/assets/social.jpg">
 
   <!-- Preload font to prevent pop on the first render -->
@@ -42,6 +40,10 @@
   <style>
     header-section::part(container) {
       z-index: 10;
+    }
+
+    a {
+      color: black;
     }
 
     .top-line {
@@ -69,6 +71,7 @@
       font-family: Lato;
       font-size: 22px;
       letter-spacing: 3.5px;
+      line-height: 32px;
       text-align: justify;
       flex-basis: 100%;
       flex: 1;
@@ -154,6 +157,17 @@
       background-color: rgb(14, 14, 14);
     }
 
+    #invite {
+      font-family: Lato;
+      font-size: 22px;
+      letter-spacing: 3.5px;
+      line-height: 32px;
+      text-align: justify;
+      flex-basis: 100%;
+      flex: 1;
+      width: 45%;
+    }
+
     @media screen and (max-width: 1200px) {
       #about-container {
         width: 90%;
@@ -167,6 +181,13 @@
 
       .about-text {
         font-size: 16px;
+        line-height: 26px;
+      }
+
+      #invite {
+        width: 90%;
+        font-size: 16px;
+        line-height: 26px;
       }
 
       #tera-text * {
@@ -300,6 +321,8 @@
         tracker="el: av8; alignW: center; alignH: center; offset: 0 -1.15 0"></a-entity>
     </a-entity>
 
+    <a-entity id="invite-tracker" position="0 -37.5 0" tracker="el: invite; alignW: center;"></a-entity>
+
     <a-entity id="char-group" position="0 -45 0">
       <a-entity gltf-part="src: #evironment; part: char1" char-material="transitionT : 0"></a-entity>
       <a-entity gltf-part="src: #evironment; part: char2" char-material="transitionT : 0"></a-entity>
@@ -341,6 +364,10 @@
     <div class="av" id="av6">sneha</div>
     <div class="av" id="av7">kashif</div>
     <div class="av" id="av8">you</div>
+
+    <div id="invite">You have landed on BlockZero. Becoming one of us is inevitable. You may get lost while exploring
+      our immersive and interactive world. <a href="contacts.html">Say hello</a> if you are lost or want to create a world within our universe.
+      Just say hi we don’t bite. We don’t even have teeth to start with.</div>
 
     <!-- <div class="equal">
       =
