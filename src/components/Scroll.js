@@ -78,7 +78,8 @@ export default {
 
     if (mql.matches) {
       this.totalScroll = 1500;
-      this.scrollClamp = 1.48;
+      this.scrollClamp = 1.633;
+      this.endingT = 1.42;
     }
   },
 
@@ -90,8 +91,6 @@ export default {
     if (mql.matches) {
       aboutScrollPos = 1300;
     }
-
-    console.log("aboutScrollPos", aboutScrollPos);
 
     this.motion.target = aboutScrollPos;
   },
