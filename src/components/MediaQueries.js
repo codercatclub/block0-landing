@@ -37,8 +37,8 @@ export default {
     }
 
     // Register event listener
-    mobileQuery.addEventListener("change", handleMobileChange);
-    desktopQuery.addEventListener("change", handleDesktopChange);
+    mobileQuery.addListener(handleMobileChange);
+    desktopQuery.addListener(handleDesktopChange);
 
     // Initial check
     handleMobileChange(mobileQuery);
