@@ -24,6 +24,7 @@
 
     .container {
       width: 80%;
+      height: 100vh;
       margin: 60px auto 0 auto;
       display: flex;
     }
@@ -130,7 +131,7 @@
       }
 
       img {
-        width: 200px;
+        width: 165px;
       }
 
       .img-container {
@@ -179,40 +180,42 @@
       <input class="submit-btn" type="submit" value="Send">
 
     </form>
-
-    <script>
-      (function () {
-        emailjs.init("user_GgAg57jday1RAP1MwTC9f");
-      })();
-
-      const form = document.getElementById("contact-form");
-
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        const successEl = document.querySelector('.form-success');
-        const failureEl = document.querySelector('.form-failure');
-        const submitBtn = document.querySelector('.submit-btn');
-
-        successEl.style.display = 'none';
-        failureEl.style.display = 'none';
-        submitBtn.disabled = true;
-
-        emailjs.sendForm("service_0n2bqb2", "template_v25x8rx", "#contact-form").then(
-          function (response) {
-            console.log("SUCCESS!", response.status, response.text);
-            form.reset();
-            successEl.style.display = 'block';
-            submitBtn.disabled = false;
-          },
-          function (error) {
-            console.log("FAILED...", error);
-            failureEl.style.display = 'block';
-            submitBtn.disabled = false;
-          }
-        );
-      }, true);
-    </script>
   </div>
+
+  <footer-section id="footer-section"></footer-section>
+
+  <script>
+    (function () {
+      emailjs.init("user_GgAg57jday1RAP1MwTC9f");
+    })();
+
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const successEl = document.querySelector('.form-success');
+      const failureEl = document.querySelector('.form-failure');
+      const submitBtn = document.querySelector('.submit-btn');
+
+      successEl.style.display = 'none';
+      failureEl.style.display = 'none';
+      submitBtn.disabled = true;
+
+      emailjs.sendForm("service_0n2bqb2", "template_v25x8rx", "#contact-form").then(
+        function (response) {
+          console.log("SUCCESS!", response.status, response.text);
+          form.reset();
+          successEl.style.display = 'block';
+          submitBtn.disabled = false;
+        },
+        function (error) {
+          console.log("FAILED...", error);
+          failureEl.style.display = 'block';
+          submitBtn.disabled = false;
+        }
+      );
+    }, true);
+  </script>
 </body>
 
 </html>
