@@ -29,10 +29,6 @@ module.exports = {
           to: '.',
         },
         {
-          from: 'src/about.html',
-          to: '.',
-        },
-        {
           from: 'src/contacts.html',
           to: '.',
         },
