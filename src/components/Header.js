@@ -1,4 +1,4 @@
-import { html, css } from "../utils";
+import { css } from "../utils";
 
 export default class Header extends HTMLElement {
   constructor() {

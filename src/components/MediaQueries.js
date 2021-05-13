@@ -13,6 +13,7 @@ export default {
     const avatarGroup = document.querySelector("#avatar-group");
     const charGroup = document.querySelector("#char-group");
     const inviteText = document.querySelector("#invite-tracker");
+    const footer = document.querySelector("#footer-dumy");
 
     function handleMobileChange(e) {
       if (e.matches) {
@@ -20,8 +21,9 @@ export default {
         character.setAttribute("scale", "1.7 1.7 1.7");
         title.setAttribute("position", "0 13 0");
         avatarGroup.setAttribute("position", "0 -31 6");
-        charGroup.setAttribute("position", "0 -55 0");
+        charGroup.setAttribute("position", "0 -52 0");
         inviteText.setAttribute("position", "0 -43 0");
+        footer.setAttribute("position", "0 -54.3 0");
       }
     }
 
@@ -33,6 +35,7 @@ export default {
         avatarGroup.setAttribute("position", "0 -28.5 0");
         charGroup.setAttribute("position", "0 -45 0");
         inviteText.setAttribute("position", "0 -37.5 0");
+        footer.setAttribute("position", "0 -45.7 0");
       }
     }
 

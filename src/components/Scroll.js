@@ -12,7 +12,7 @@ export default {
     this.isDown = false;
     this.touchStart = 0;
 
-    this.endingT = 1.19;
+    this.endingT = 1.22;
     this.scrollClamp = 1.331;
 
     this.motion = {
@@ -78,7 +78,7 @@ export default {
 
     if (mql.matches) {
       this.totalScroll = 1500;
-      this.scrollClamp = 1.633;
+      this.scrollClamp = 1.543;
       this.endingT = 1.42;
     }
   },
