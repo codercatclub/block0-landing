@@ -24,9 +24,9 @@
 
     .container {
       width: 80%;
-      height: 100vh;
       margin: 60px auto 0 auto;
       display: flex;
+      height: 100vh;
     }
 
     .img-container {
@@ -128,15 +128,16 @@
     @media screen and (max-width: 768px) {
       .container {
         flex-direction: column;
+        height: unset;
       }
 
       img {
-        width: 165px;
+        width: 180px;
       }
 
       .img-container {
         flex: unset;
-        height: 500px;
+        height: 440px;
       }
     }
   </style>
