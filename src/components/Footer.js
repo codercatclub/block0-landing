@@ -39,7 +39,7 @@ export default class Footer extends HTMLElement {
       }
 
       #container {
-        height: 140px;
+        height: 155px;
         width: 100vw;
         background-color: black;
         display: flex;

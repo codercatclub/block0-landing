@@ -35,7 +35,7 @@ export default {
         avatarGroup.setAttribute("position", "0 -28.5 0");
         charGroup.setAttribute("position", "0 -45 0");
         inviteText.setAttribute("position", "0 -37.5 0");
-        footer.setAttribute("position", "0 -45.8 0");
+        footer.setAttribute("position", "0 -45.65 0");
       }
     }
 
