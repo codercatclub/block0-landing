@@ -21,6 +21,9 @@ export default class Footer extends HTMLElement {
           <a href="https://vm.tiktok.com/ZMexL6cqY/" target="_blank"
             ><img src="assets/imgs/tiktok.png"
           /></a>
+          <a href="https://www.linkedin.com/company/block0space" target="_blank"
+            ><img src="assets/imgs/linkedin.png"
+          /></a>
         </div>
         <div class="text">END OF BLOCK ZERO</div>
         <div class="tm">2021 invi & codercat</div>
