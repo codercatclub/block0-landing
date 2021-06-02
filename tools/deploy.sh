@@ -1,5 +1,5 @@
 export NODE_ENV=production
-export HOST_URL="https://codercatclub.github.io/block0-landing/"
+export HOST_URL="https://block-zero.us/"
 
 domain="block-zero.us"
 
